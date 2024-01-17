@@ -82,3 +82,31 @@ if (!storedHobbies.includes(hobbyName)) {
 }
 
 // function to renderbuttons for search history onto the page
+
+function renderbuttons (storedHobbies){
+
+  localStorage.getItem(JSON.parse(storedHobbies))
+   for (let i =0; i<storedHobbies.length; i++){
+    let searchedButton = $("<button>").text(storeHobbies[i]).addClass("btn-primary")
+    $("#history").append(searchedButton)
+   }
+}
+
+
+// Button to restart the hobby search
+$("#restart").on("click", function(e){
+  e.preventDefault()
+  window.location.href = "index.html";
+  })
+
+
+// button to take to saved hobbies
+// $("#hobby-plan").on("click", function(e){
+//   e.preventDefault();
+//   window.location.href= "myhobbies.html";
+
+//   $(document).ready(function(){
+//      renderbuttons(storedHobbies);
+//   })
+ 
+// })
