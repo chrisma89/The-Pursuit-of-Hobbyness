@@ -55,16 +55,55 @@
       <h3></h3>
       <div id="videos"></div>
       <button id="wiki-link">more hobby information</button>
-      <button id="hobby-plan">make a hobby plan</button>
+      <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="hobby-plan">make a hobby plan</button>
       <button id="restart">search for another hobby</button>
     </section>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Make a plan</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>how many hours do you want to learn about your hobby
+              per week?</p>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Number of hours</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <hr>
+            <p>which days are you available to learn about your hobby?</p>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Number of hours</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
+
+
 </body>
 
 
