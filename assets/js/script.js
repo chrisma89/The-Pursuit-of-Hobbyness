@@ -28,27 +28,57 @@
 
 
 // API Key
-APIkey = "";
+APIkey = "HQJGUX8MyF1GgKP0bU2umUaZZp0XuqHXsfD4kWju";
 
 // Queryurl for random hobbies
-queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5`
+
+// https://api.api-ninjas.com/v1/hobbies?category=
 
 // fetch call for random hobbies generator
-fetch(queryURL, {
-  headers: {
-    'X-Api-Key': APIkey
+
+$(".hobby-category").on("click",function(e){
+   e.preventDefault();
+   let dataCategory = $(this).attr("data-category");
+queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
+   fetch(queryURL, {
+    headers: {
+      'X-Api-Key': APIkey
+    }
+  })
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data)
+   
+    // Random hobby suggestion appended to page
+    let hobbyName = data.hobby
+    storeHobbies(hobbyName);
+    let randomHobby = $("<h3>").text(hobbyName)
+    // localStorage.setItem("searchedHobby", data.hobby) ||[];
+    $("body").append(randomHobby)
+
+    // more info button takes user to wikipedia page
+    $("#wiki-link").on("click", function(e){
+       e.preventDefault();
+      //  let infoText = $("<p>");
+       let wikipediaLink = $("<a>").attr("href", data.link).text("Link to Wikipedia")
+      //  wikipediaLink.append(infoText)
+       $("#wiki-link").append(wikipediaLink)
+    })
+   })
+})
+
+
+// function to store search hobbies/history into local storage
+function storeHobbies (hobbyName){
+  let storedHobbies =[];
+  storedHobbies = JSON.parse(localStorage.getItem("searchedHobby")) || [];
+
+if (!storedHobbies.includes(hobbyName)) {
+    storedHobbies.push(hobbyName);
   }
-})
-.then(function(response){
-  return response.json()
-})
-.then(function(data){
-  console.log(data)
-  console.log("ding")
+  localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
+}
 
-  let randomHobby = $("<h2>").text(data.hobby)
-  $("body").append(randomHobby)
-
-  let wikipediaLink = $("<a>").attr("href", data.link).text("Link to Wikipedia")
-  $("body").append(wikipediaLink)
-})
+// function to renderbuttons for search history onto the page
