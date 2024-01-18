@@ -37,7 +37,7 @@ $(".hobby-category").on("click",function(e){
 
    let dataCategory = $(this).attr("data-category");
    queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
-   
+
    fetch(queryURL, {
     headers: {
       'X-Api-Key': APIkey
@@ -50,19 +50,21 @@ $(".hobby-category").on("click",function(e){
     console.log(data)
    
     // Random hobby suggestion appended to page
-    let hobbyName = data.hobby
-    storeHobbies(hobbyName);
-    let randomHobby = $("<h3>").text(hobbyName)
-    // localStorage.setItem("searchedHobby", data.hobby) ||[];
+    let hobbyName = data.hobby;
+    let wikiLink = data.link;
+    let randomHobby = $("h3").text(hobbyName)
     $("body").append(randomHobby)
 
-    // youtube videos appending
+    // function call to store searched hobbies in local storage
+    storeHobbies(hobbyName);
     
-    console.log(hobbyName)
-    // youtube api
-    // APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+    // youtube videos appending
+       console.log(hobbyName)
 
-    youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${APikey}&q=${hobbyName}&type=video`
+    // youtube api
+       youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+
+       youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}&type=video`
 
     fetch(youtubeQueryURL)
     .then(function(response){
@@ -70,18 +72,20 @@ $(".hobby-category").on("click",function(e){
     })
     .then(function(data){
       console.log(data)
+      
     })
-    })
+  
 
     // more info button takes user to wikipedia page
     $("#wiki-link").on("click", function(e){
        e.preventDefault();
       //  let infoText = $("<p>");
-       let wikipediaLink = $("<a>").attr("href", data.link).text("Link to Wikipedia")
+       let wikipediaLink = $("<a>").attr("href", wikiLink).text("Link to Wikipedia")
       //  wikipediaLink.append(infoText)
-       $("#wiki-link").append(wikipediaLink)
+       $("body").append(wikipediaLink)
     })
    })
+  })
 
 
 // function to store search hobbies/history into local storage
@@ -126,14 +130,25 @@ $("#restart").on("click", function(e){
 // })
 
 // youtube api
-APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+// APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
 
 // function to embed videos based on the randomly generated hobby
 
 function embedCustomVideos (){
-  let videoSection = $("#videos")
-  let videoId = $("<iframe>")
-  videoId.attr("width", "560", "height", "315", "src", "",)
 
+  // will need a loop
+  let videoSection = $("#videos")
+  // videoID = data.item[0].(to find out at next api call)
+  let videoIframe = $("<iframe>")
+ 
+  videoIframe.attr("width", "560");
+  videoIframe.attr("height", "315");
+  videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
+  videoIframe.attr("frameborder", "0");
+  videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+  videoIframe.attr("allowfullscreen", "");
+
+  videoSection.append(videoIframe);
 }
+
