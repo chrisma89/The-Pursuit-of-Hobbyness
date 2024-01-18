@@ -62,7 +62,7 @@ $(".hobby-category").on("click",function(e){
        console.log(hobbyName)
 
     // youtube api
-      //  youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+       youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
        youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}&type=video`
 
@@ -80,7 +80,7 @@ $(".hobby-category").on("click",function(e){
     $("#wiki-link").on("click", function(e){
        e.preventDefault();
       //  let infoText = $("<p>");
-       let wikipediaLink = $("<a>").attr("href", wikiLink).text("Link to Wikipedia")
+       let wikipediaLink = $("<a>").attr("href", wikiLink).attr("target" , "_blank").text("Link to Wikipedia")
       //  wikipediaLink.append(infoText)
        $("body").append(wikipediaLink)
     })
@@ -114,7 +114,7 @@ $("#hobby-plan").on("click", function(e){
  })
 
 // youtube api
-// APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
 
 // function to embed videos based on the randomly generated hobby
@@ -123,7 +123,7 @@ function embedCustomVideos (){
 
   // will need a loop
   let videoSection = $("#videos")
-  // videoID = data.item[0].(to find out at next api call)
+  // videoID = data.item[0].(to find out at next api call
   let videoIframe = $("<iframe>")
  
   videoIframe.attr("width", "560");
@@ -136,3 +136,4 @@ function embedCustomVideos (){
   videoSection.append(videoIframe);
 }
 
+// $(".something").attr( { title:"Test", alt:"Test2" } );
