@@ -94,7 +94,6 @@ $(".hobby-category").on("click", function (e) {
       }
     })
   
-  
 
     // more info button takes user to wikipedia page
     $("#wiki-link").on("click", function(e){
@@ -105,6 +104,7 @@ $(".hobby-category").on("click", function (e) {
        $("body").append(wikipediaLink)
 
     })
+})
 })
 
 
