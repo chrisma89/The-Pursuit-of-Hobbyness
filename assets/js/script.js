@@ -43,47 +43,67 @@ $(".hobby-category").on("click", function (e) {
       'X-Api-Key': APIkey
     }
   })
-    .then(function (response) {
+
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data)
+   
+    // Random hobby suggestion appended to page
+    let hobbyName = data.hobby;
+    let wikiLink = data.link;
+    let randomHobby = $("h3").text(hobbyName)
+    $("body").append(randomHobby)
+
+    // function call to store searched hobbies in local storage
+    storeHobbies(hobbyName);
+    
+    // youtube videos appending
+       console.log(hobbyName)
+
+    // youtube api
+       youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+
+       youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6`
+
+    fetch(youtubeQueryURL)
+    .then(function(response){
       return response.json()
     })
     .then(function (data) {
       console.log(data)
 
-      // Random hobby suggestion appended to page
-      let hobbyName = data.hobby;
-      let wikiLink = data.link;
-      let randomHobby = $("h3").text(hobbyName)
-      $("body").append(randomHobby)
+      let videoItems = data.items
+      // embedCustomVideos();
+      let videoSection = $("#videos")
+      for (let i= 0; i< videoItems.length; i++){
+         let videoID = data.items[i].id.videoId
+  console.log(videoID)
+  let videoIframe = $("<iframe>")
+ 
+  videoIframe.attr("width", "560");
+  videoIframe.attr("height", "315");
+  videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
+  videoIframe.attr("frameborder", "0");
+  videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+  videoIframe.attr("allowfullscreen", "");
 
-      // function call to store searched hobbies in local storage
-      storeHobbies(hobbyName);
+  videoSection.append(videoIframe);
+    
+      }
+    })
+  
+  
 
-      // youtube videos appending
-      console.log(hobbyName)
+    // more info button takes user to wikipedia page
+    $("#wiki-link").on("click", function(e){
+       e.preventDefault();
+      //  let infoText = $("<p>");
+       let wikipediaLink = $("<a>").attr("href", wikiLink).attr("target" , "_blank").text("Link to Wikipedia")
+      //  wikipediaLink.append(infoText)
+       $("body").append(wikipediaLink)
 
-      // youtube api
-      youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
-
-      youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}&type=video`
-
-      fetch(youtubeQueryURL)
-        .then(function (response) {
-          return response.json()
-        })
-        .then(function (data) {
-          console.log(data)
-
-        })
-
-
-      // more info button takes user to wikipedia page
-      $("#wiki-link").on("click", function (e) {
-        e.preventDefault();
-        //  let infoText = $("<p>");
-        let wikipediaLink = $("<a>").attr("href", wikiLink).attr("target", "_blank").text("Link to Wikipedia")
-        //  wikipediaLink.append(infoText)
-        $("body").append(wikipediaLink)
-      })
     })
 })
 
@@ -119,21 +139,24 @@ APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
 // function to embed videos based on the randomly generated hobby
 
-function embedCustomVideos() {
 
-  // will need a loop
-  let videoSection = $("#videos")
-  // videoID = data.item[0].(to find out at next api call
-  let videoIframe = $("<iframe>")
+// function embedCustomVideos (){
 
-  videoIframe.attr("width", "560");
-  videoIframe.attr("height", "315");
-  videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
-  videoIframe.attr("frameborder", "0");
-  videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
-  videoIframe.attr("allowfullscreen", "");
+//   // will need a loop
+//   let videoSection = $("#videos")
+//   videoID = data.item[0].id.videoId
+//   console.log(videoID)
+//   let videoIframe = $("<iframe>")
+ 
+//   videoIframe.attr("width", "560");
+//   videoIframe.attr("height", "315");
+//   videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
+//   videoIframe.attr("frameborder", "0");
+//   videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+//   videoIframe.attr("allowfullscreen", "");
 
-  videoSection.append(videoIframe);
-}
+//   videoSection.append(videoIframe);
+// }
+
 
 // $(".something").attr( { title:"Test", alt:"Test2" } );
