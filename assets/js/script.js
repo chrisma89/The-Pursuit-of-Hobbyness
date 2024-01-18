@@ -64,7 +64,7 @@ $(".hobby-category").on("click",function(e){
     // youtube api
        youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
-       youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}&type=video`
+       youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6`
 
     fetch(youtubeQueryURL)
     .then(function(response){
@@ -72,8 +72,26 @@ $(".hobby-category").on("click",function(e){
     })
     .then(function(data){
       console.log(data)
-      
+      let videoItems = data.items
+      // embedCustomVideos();
+      let videoSection = $("#videos")
+      for (let i= 0; i< videoItems.length; i++){
+         let videoID = data.items[i].id.videoId
+  console.log(videoID)
+  let videoIframe = $("<iframe>")
+ 
+  videoIframe.attr("width", "560");
+  videoIframe.attr("height", "315");
+  videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
+  videoIframe.attr("frameborder", "0");
+  videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+  videoIframe.attr("allowfullscreen", "");
+
+  videoSection.append(videoIframe);
+    
+      }
     })
+  
   
 
     // more info button takes user to wikipedia page
@@ -119,21 +137,22 @@ APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
 // function to embed videos based on the randomly generated hobby
 
-function embedCustomVideos (){
+// function embedCustomVideos (){
 
-  // will need a loop
-  let videoSection = $("#videos")
-  // videoID = data.item[0].(to find out at next api call
-  let videoIframe = $("<iframe>")
+//   // will need a loop
+//   let videoSection = $("#videos")
+//   videoID = data.item[0].id.videoId
+//   console.log(videoID)
+//   let videoIframe = $("<iframe>")
  
-  videoIframe.attr("width", "560");
-  videoIframe.attr("height", "315");
-  videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
-  videoIframe.attr("frameborder", "0");
-  videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
-  videoIframe.attr("allowfullscreen", "");
+//   videoIframe.attr("width", "560");
+//   videoIframe.attr("height", "315");
+//   videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
+//   videoIframe.attr("frameborder", "0");
+//   videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+//   videoIframe.attr("allowfullscreen", "");
 
-  videoSection.append(videoIframe);
-}
+//   videoSection.append(videoIframe);
+// }
 
 // $(".something").attr( { title:"Test", alt:"Test2" } );
