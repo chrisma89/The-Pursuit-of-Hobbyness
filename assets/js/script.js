@@ -27,19 +27,17 @@
 
 
 
-// API Key
+// Random Hobby generator- APis Ninja API Key
 APIkey = "HQJGUX8MyF1GgKP0bU2umUaZZp0XuqHXsfD4kWju";
 
-// Queryurl for random hobbies
-
-// https://api.api-ninjas.com/v1/hobbies?category=
-
-// fetch call for random hobbies generator
+// fetch call for random hobbies generator on user click of a category
 
 $(".hobby-category").on("click",function(e){
    e.preventDefault();
+
    let dataCategory = $(this).attr("data-category");
-queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
+   queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
+   
    fetch(queryURL, {
     headers: {
       'X-Api-Key': APIkey
@@ -58,6 +56,23 @@ queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&categ
     // localStorage.setItem("searchedHobby", data.hobby) ||[];
     $("body").append(randomHobby)
 
+    // youtube videos appending
+    
+    console.log(hobbyName)
+    // youtube api
+    // APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+
+    youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${APikey}&q=${hobbyName}&type=video`
+
+    fetch(youtubeQueryURL)
+    .then(function(response){
+      return response.json()
+    })
+    .then(function(data){
+      console.log(data)
+    })
+    })
+
     // more info button takes user to wikipedia page
     $("#wiki-link").on("click", function(e){
        e.preventDefault();
@@ -67,7 +82,6 @@ queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&categ
        $("#wiki-link").append(wikipediaLink)
     })
    })
-})
 
 
 // function to store search hobbies/history into local storage
@@ -110,3 +124,16 @@ $("#restart").on("click", function(e){
 //   })
  
 // })
+
+// youtube api
+APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+
+
+// function to embed videos based on the randomly generated hobby
+
+function embedCustomVideos (){
+  let videoSection = $("#videos")
+  let videoId = $("<iframe>")
+  videoId.attr("width", "560", "height", "315", "src", "",)
+
+}
