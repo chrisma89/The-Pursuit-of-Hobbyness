@@ -62,7 +62,7 @@ $(".hobby-category").on("click",function(e){
        console.log(hobbyName)
 
     // youtube api
-       youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+      //  youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
        youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}&type=video`
 
@@ -99,17 +99,6 @@ if (!storedHobbies.includes(hobbyName)) {
   localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
 }
 
-// function to renderbuttons for search history onto the page
-
-function renderbuttons (storedHobbies){
-
-  localStorage.getItem(JSON.parse(storedHobbies))
-   for (let i =0; i<storedHobbies.length; i++){
-    let searchedButton = $("<button>").text(storeHobbies[i]).addClass("btn-primary")
-    $("#history").append(searchedButton)
-   }
-}
-
 
 // Button to restart the hobby search
 $("#restart").on("click", function(e){
@@ -119,15 +108,10 @@ $("#restart").on("click", function(e){
 
 
 // button to take to saved hobbies
-// $("#hobby-plan").on("click", function(e){
-//   e.preventDefault();
-//   window.location.href= "myhobbies.html";
-
-//   $(document).ready(function(){
-//      renderbuttons(storedHobbies);
-//   })
- 
-// })
+$("#hobby-plan").on("click", function(e){
+  e.preventDefault();
+  window.location.href= "myhobbies.html";
+ })
 
 // youtube api
 // APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
