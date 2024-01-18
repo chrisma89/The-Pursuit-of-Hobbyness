@@ -23,10 +23,6 @@
 // could add start again button - to go back to landing page
 
 
-
-
-
-
 // API Key
 APIkey = "";
 
@@ -39,16 +35,16 @@ fetch(queryURL, {
     'X-Api-Key': APIkey
   }
 })
-.then(function(response){
-  return response.json()
-})
-.then(function(data){
-  console.log(data)
-  console.log("ding")
+  .then(function (response) {
+    return response.json()
+  })
+  .then(function (data) {
+    console.log(data)
+    console.log("ding")
 
-  let randomHobby = $("<h2>").text(data.hobby)
-  $("body").append(randomHobby)
+    let randomHobby = $("<h2>").text(data.hobby)
+    $("body").append(randomHobby)
 
-  let wikipediaLink = $("<a>").attr("href", data.link).text("Link to Wikipedia")
-  $("body").append(wikipediaLink)
-})
+    let wikipediaLink = $("<a>").attr("href", data.link).text("Link to Wikipedia")
+    $("body").append(wikipediaLink)
+  })
