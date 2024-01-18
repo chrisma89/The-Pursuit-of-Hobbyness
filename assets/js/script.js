@@ -27,28 +27,113 @@
 
 
 
-// API Key
-APIkey = "";
+// Random Hobby generator- APis Ninja API Key
+APIkey = "HQJGUX8MyF1GgKP0bU2umUaZZp0XuqHXsfD4kWju";
 
-// Queryurl for random hobbies
-queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5`
+// fetch call for random hobbies generator on user click of a category
 
-// fetch call for random hobbies generator
-fetch(queryURL, {
-  headers: {
-    'X-Api-Key': APIkey
+$(".hobby-category").on("click",function(e){
+   e.preventDefault();
+
+   let dataCategory = $(this).attr("data-category");
+   queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
+
+   fetch(queryURL, {
+    headers: {
+      'X-Api-Key': APIkey
+    }
+  })
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data)
+   
+    // Random hobby suggestion appended to page
+    let hobbyName = data.hobby;
+    let wikiLink = data.link;
+    let randomHobby = $("h3").text(hobbyName)
+    $("body").append(randomHobby)
+
+    // function call to store searched hobbies in local storage
+    storeHobbies(hobbyName);
+    
+    // youtube videos appending
+       console.log(hobbyName)
+
+    // youtube api
+       youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+
+       youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}&type=video`
+
+    fetch(youtubeQueryURL)
+    .then(function(response){
+      return response.json()
+    })
+    .then(function(data){
+      console.log(data)
+      
+    })
+  
+
+    // more info button takes user to wikipedia page
+    $("#wiki-link").on("click", function(e){
+       e.preventDefault();
+      //  let infoText = $("<p>");
+       let wikipediaLink = $("<a>").attr("href", wikiLink).attr("target" , "_blank").text("Link to Wikipedia")
+      //  wikipediaLink.append(infoText)
+       $("body").append(wikipediaLink)
+    })
+   })
+  })
+
+
+// function to store search hobbies/history into local storage
+function storeHobbies (hobbyName){
+  let storedHobbies =[];
+  storedHobbies = JSON.parse(localStorage.getItem("searchedHobby")) || [];
+
+if (!storedHobbies.includes(hobbyName)) {
+    storedHobbies.push(hobbyName);
   }
-})
-.then(function(response){
-  return response.json()
-})
-.then(function(data){
-  console.log(data)
-  console.log("ding")
+  localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
+}
 
-  let randomHobby = $("<h2>").text(data.hobby)
-  $("body").append(randomHobby)
 
-  let wikipediaLink = $("<a>").attr("href", data.link).text("Link to Wikipedia")
-  $("body").append(wikipediaLink)
-})
+// Button to restart the hobby search
+$("#restart").on("click", function(e){
+  e.preventDefault()
+  window.location.href = "index.html";
+  })
+
+
+// button to take to saved hobbies
+$("#hobby-plan").on("click", function(e){
+  e.preventDefault();
+  window.location.href= "myhobbies.html";
+ })
+
+// youtube api
+APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+
+
+// function to embed videos based on the randomly generated hobby
+
+function embedCustomVideos (){
+
+  // will need a loop
+  let videoSection = $("#videos")
+  // videoID = data.item[0].(to find out at next api call
+  let videoIframe = $("<iframe>")
+ 
+  videoIframe.attr("width", "560");
+  videoIframe.attr("height", "315");
+  videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
+  videoIframe.attr("frameborder", "0");
+  videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+  videoIframe.attr("allowfullscreen", "");
+
+  videoSection.append(videoIframe);
+}
+
+// $(".something").attr( { title:"Test", alt:"Test2" } );
