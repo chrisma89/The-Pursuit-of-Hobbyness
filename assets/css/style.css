@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.background-image {
+  
+}
+
 .overlay-text {
   position: absolute;
   top: 0;
@@ -17,6 +21,7 @@
   justify-content: center;
   color: white;
   text-align: center;
+  font-size: 20px;
 }
 
 .hero-banner {}
