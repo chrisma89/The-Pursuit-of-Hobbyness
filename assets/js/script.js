@@ -32,17 +32,18 @@ APIkey = "HQJGUX8MyF1GgKP0bU2umUaZZp0XuqHXsfD4kWju";
 
 // fetch call for random hobbies generator on user click of a category
 
-$(".hobby-category").on("click",function(e){
-   e.preventDefault();
+$(".hobby-category").on("click", function (e) {
+  e.preventDefault();
 
-   let dataCategory = $(this).attr("data-category");
-   queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
+  let dataCategory = $(this).attr("data-category");
+  queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
 
-   fetch(queryURL, {
+  fetch(queryURL, {
     headers: {
       'X-Api-Key': APIkey
     }
   })
+
   .then(function(response){
     return response.json()
   })
@@ -70,8 +71,9 @@ $(".hobby-category").on("click",function(e){
     .then(function(response){
       return response.json()
     })
-    .then(function(data){
+    .then(function (data) {
       console.log(data)
+
       let videoItems = data.items
       // embedCustomVideos();
       let videoSection = $("#videos")
@@ -101,17 +103,17 @@ $(".hobby-category").on("click",function(e){
        let wikipediaLink = $("<a>").attr("href", wikiLink).attr("target" , "_blank").text("Link to Wikipedia")
       //  wikipediaLink.append(infoText)
        $("body").append(wikipediaLink)
+
     })
-   })
-  })
+})
 
 
 // function to store search hobbies/history into local storage
-function storeHobbies (hobbyName){
-  let storedHobbies =[];
+function storeHobbies(hobbyName) {
+  let storedHobbies = [];
   storedHobbies = JSON.parse(localStorage.getItem("searchedHobby")) || [];
 
-if (!storedHobbies.includes(hobbyName)) {
+  if (!storedHobbies.includes(hobbyName)) {
     storedHobbies.push(hobbyName);
   }
   localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
@@ -119,23 +121,24 @@ if (!storedHobbies.includes(hobbyName)) {
 
 
 // Button to restart the hobby search
-$("#restart").on("click", function(e){
+$("#restart").on("click", function (e) {
   e.preventDefault()
   window.location.href = "index.html";
-  })
+})
 
 
 // button to take to saved hobbies
-$("#hobby-plan").on("click", function(e){
+$("#hobby-plan").on("click", function (e) {
   e.preventDefault();
-  window.location.href= "myhobbies.html";
- })
+  window.location.href = "myhobbies.html";
+})
 
 // youtube api
 APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
 
 // function to embed videos based on the randomly generated hobby
+
 
 // function embedCustomVideos (){
 
@@ -154,5 +157,6 @@ APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
 //   videoSection.append(videoIframe);
 // }
+
 
 // $(".something").attr( { title:"Test", alt:"Test2" } );
