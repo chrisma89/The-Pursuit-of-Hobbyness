@@ -80,6 +80,7 @@ $(".hobby-category").on("click", function (e) {
       for (let i= 0; i< videoItems.length; i++){
          let videoID = data.items[i].id.videoId
   console.log(videoID)
+  let videoDIv = $("<div>").addClass("col-md-4")
   let videoIframe = $("<iframe>")
  
   videoIframe.attr("width", "560");
@@ -89,7 +90,7 @@ $(".hobby-category").on("click", function (e) {
   videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
   videoIframe.attr("allowfullscreen", "");
 
-  videoSection.append(videoIframe);
+  videoSection.append(videoDIv, videoIframe);
     
       }
     })
