@@ -100,10 +100,10 @@ $(".hobby-category").on("click", function (e) {
    
 
     // function call to store searched hobbies in local storage
-    storeHobbies(hobbyName);
+    storeHobbies(hobbyName, dataCategory);
     
     // youtube videos appending
-       console.log(hobbyName)
+       console.log(hobbyName, dataCategory)
 
        $(".videosgeneratorbtn").on("click", function(e){
         e.preventDefault()
@@ -161,7 +161,7 @@ $(".hobby-category").on("click", function (e) {
   
   
 
-    // more info button takes user to wikipedia page
+    // dynamically created what is? button takes user to wikipedia page
     $(".wikipedialinkgenerator").on("click", function(e){
        e.preventDefault();
       
@@ -175,14 +175,22 @@ $(".hobby-category").on("click", function (e) {
 
 
 // function to store search hobbies/history into local storage
-function storeHobbies(hobbyName) {
+function storeHobbies(hobbyName, dataCategory) {
   let storedHobbies = [];
+  let category = [];
   storedHobbies = JSON.parse(localStorage.getItem("searchedHobby")) || [];
+  category = JSON.parse(localStorage.getItem("searchedcategory")) || [];
 
   if (!storedHobbies.includes(hobbyName)) {
     storedHobbies.push(hobbyName);
   }
+  if (!category.includes(dataCategory)) {
+    category.push(dataCategory);
+  }
+
   localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
+  localStorage.setItem("searchedcategory", JSON.stringify(category));
+
 }
 
 
