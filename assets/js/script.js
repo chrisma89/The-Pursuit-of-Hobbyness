@@ -22,6 +22,15 @@
 
 // could add start again button - to go back to landing page
 
+$(function(){
+  $("#categories").css("display", "none")
+})
+
+// find new hobby button
+$(".newhobbybtn").on("click", function(){
+  $("#welcome").css("display", "none");
+  $("#categories").css("display", "block")
+})
 
 
 
@@ -49,18 +58,43 @@ $(".hobby-category").on("click", function (e) {
   })
   .then(function(data){
     console.log(data)
+
+     // Random hobby suggestion appended to page
+     let hobbyName = data.hobby;
+     let wikiLink = data.link;
+    //  let randomHobby = $("h3").text(hobbyName)
+    //  $("body").append(randomHobby)
+    
+    $("#categories").css("display", "none");
+    $("#hobby").css("display", "block");
+
+    let hobbySection = $("#hobby")
+
+    // need 4 buttons-need a tag line array
+    let taglineArray = ["Have you thought about ", "We recommend ", "Ever considered ", "Here is something interesting : ", "What about "]
+    
+    // for(let i =0; i < taglineArray.length; i++){
+    let hobbySectionText = $("<h3>").text(taglineArray[0] + hobbyName + " ? ")
+    hobbySection.append(hobbySectionText)
+    // return
+    // }
+
+    hobbySection.append($("<button>").text("Take me to the videos").addClass("videosgeneratorbtn btn-pink btn-lg"))
+    hobbySection.append($("<button>").text("What is " + hobbyName).addClass("wikipedialinkgenerator btn-yellow btn-lg"))
+    hobbySection.append($("<button>").text("New " + dataCategory + " hobby").addClass("samecategoryhobbygenerator btn-yellow btn-lg"))
+    hobbySection.append($("<button>").text("Start Over").addClass("btn-yellow btn-lg").attr("src", "./index.html"))
+
    
-    // Random hobby suggestion appended to page
-    let hobbyName = data.hobby;
-    let wikiLink = data.link;
-    let randomHobby = $("h3").text(hobbyName)
-    $("body").append(randomHobby)
+   
 
     // function call to store searched hobbies in local storage
     storeHobbies(hobbyName);
     
     // youtube videos appending
        console.log(hobbyName)
+
+       $(".videosgeneratorbtn").on("click", function(e){
+        e.preventDefault()
 
     // youtube api
        youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
@@ -91,22 +125,24 @@ $(".hobby-category").on("click", function (e) {
   videoIframe.attr("allowfullscreen", "");
 
   videoSection.append(videoDIv, videoIframe);
-    
       }
-    })
+      })
+      }
+    )
+  
   
 
     // more info button takes user to wikipedia page
-    $("#wiki-link").on("click", function(e){
+    $(".wikipedialinkgenerator").on("click", function(e){
        e.preventDefault();
-      //  let infoText = $("<p>");
-       let wikipediaLink = $("<a>").attr("href", wikiLink).attr("target" , "_blank").text("Link to Wikipedia")
-      //  wikipediaLink.append(infoText)
-       $("body").append(wikipediaLink)
+      
+       $(this).attr("href", wikiLink).attr("target" , "_blank")
+       window.open($(this).attr("href"), '_blank');
 
     })
 })
 })
+
 
 
 // function to store search hobbies/history into local storage
