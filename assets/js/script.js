@@ -176,20 +176,61 @@ $(".hobby-category").on("click", function (e) {
 
 // function to store search hobbies/history into local storage
 function storeHobbies(hobbyName, dataCategory) {
-  let storedHobbies = [];
-  let category = [];
-  storedHobbies = JSON.parse(localStorage.getItem("searchedHobby")) || [];
-  category = JSON.parse(localStorage.getItem("searchedcategory")) || [];
+  let general =[];
+  let sports_and_outdoors = [];
+  let education = [];
+  let collection = [];
+  let competition = [];
+  let observation = [];
+  general = JSON.parse(localStorage.getItem("general")) || [];
+  sports_and_outdoors = JSON.parse(localStorage.getItem("sports_and_outdoors")) || [];
+  education = JSON.parse(localStorage.getItem("education")) || [];
+  collection = JSON.parse(localStorage.getItem("collection")) || [];
+  competition = JSON.parse(localStorage.getItem("competition")) || [];
+  observation = JSON.parse(localStorage.getItem("observation")) || [];
 
-  if (!storedHobbies.includes(hobbyName)) {
-    storedHobbies.push(hobbyName);
+  if (dataCategory === "general"){
+    general.push(hobbyName)
+    localStorage.setItem("general" , JSON.stringify(general))
   }
-  if (!category.includes(dataCategory)) {
-    category.push(dataCategory);
+  else if (dataCategory === "sports_and_outdoors"){
+    sports_and_outdoors.push(hobbyName)
+    localStorage.setItem("sports_and_outdoors" , JSON.stringify(sports_and_outdoors))
+  }
+  else if (dataCategory === "education"){
+    education.push(hobbyName)
+    localStorage.setItem("education" , JSON.stringify(education))
+  }
+  else if (dataCategory === "collection"){
+    collection.push(hobbyName)
+    localStorage.setItem("collection" , JSON.stringify(collection))
+  }
+  else if (dataCategory === "competition"){
+    competition.push(hobbyName)
+    localStorage.setItem("competition" , JSON.stringify(competition))
+  }
+  else if(dataCategory === "observation"){
+    observation.push(hobbyName)
+    localStorage.setItem("observation" , JSON.stringify(observation))
   }
 
-  localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
-  localStorage.setItem("searchedcategory", JSON.stringify(category));
+
+
+
+  // let storedHobbies = [];
+  // // let category = [];
+  // storedHobbies = JSON.parse(localStorage.getItem("searchedHobby")) || [];
+  // category = JSON.parse(localStorage.getItem("searchedcategory")) || [];
+
+  // if (!storedHobbies.includes(hobbyName)) {
+  //   storedHobbies.push(hobbyName);
+  // }
+  // if (!category.includes(dataCategory)) {
+  //   category.push(dataCategory);
+  // }
+
+  // localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
+  // localStorage.setItem("searchedcategory", JSON.stringify(category));
 
 }
 
