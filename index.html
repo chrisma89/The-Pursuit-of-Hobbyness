@@ -9,6 +9,7 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css" class="s">
   <title>The Pursuit of Hobbyness</title>
+  <!-- Google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend&family=Nunito+Sans:opsz@6..12&display=swap"
@@ -19,19 +20,20 @@
   <div class="header"></div>
 
   <main>
-    <section class ="container-sm hobby-section" id="welcome">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <section class="container-sm hobby-section" id="welcome">
+      <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="index.html">The Pursuit of Hobbyness</a>
-       </nav>
-        </button>
+      </nav>
+      <button class="btn btn-yellow my-hobbies">MY HOBBIES</button>
       <div class="p-5 mb-4 rounded-3">
         <div class="container-fluid py-5">
           <div class="hero-banner">
             <h1 class="display-5 fw-bold">The Pursuit of Hobbyness</h1>
-            <p class="col-md-8 fs-4 mx-auto">Are you looking for a new hobby but not sure what you like? Use our online app to
+            <p class="col-md-8 fs-4 mx-auto">Are you looking for a new hobby but not sure what you like? Use our online
+              app to
               get
               a random hobby suggestion and video tips to get you started!</p>
-            <button class="btn btn-pink btn-lg" type="button">LET'S GO</button>
+            <button class="btn btn-pink btn-lg" type="button">FIND NEW HOBBY</button>
           </div>
         </div>
       </div>
@@ -40,6 +42,7 @@
       <div class="p-5 mb-4 rounded-3">
         <div class="container-fluid py-5">
           <div class="row">
+            <h2 class="category-title">Pick a category</h2>
             <div class="col-md-4">
               <div class="card hobby-category" data-category="general"
                 style="background-image: url('assets/images/general.jpg')">
@@ -66,7 +69,7 @@
             </div>
             <div class="col-md-4">
               <div class="card hobby-category" data-category="collection"
-                style="background-image: url(assets/images/collection-1.jpg);">
+                style="background-image: url('assets/images/collection-1.jpg');">
                 <div class="overlay-text">
                   <h2>Collection</h2>
                 </div>
@@ -82,7 +85,7 @@
             </div>
             <div class="col-md-4">
               <div class="card hobby-category" data-category="observation"
-                style="background-image: url(assets/images/birdwatching.jpg);">
+                style="background-image: url('assets/images/birdwatching.jpg');">
                 <div class="overlay-text">
                   <h2>Observation</h2>
                 </div>
@@ -91,78 +94,19 @@
           </div>
         </div>
     </section>
-    <section class ="container-sm" id="hobby">
-      <h2>We recommend..</h2>
+    <section class="container-sm" id="hobby">
+      <!-- <h2>Have you thought about ?</h2> -->
       <h3></h3>
-      <div class ="container-sm" id="videos"></div>
-      <!-- <button id="wiki-link">more hobby information</button>
+      <!-- <button id="videos">take me to the videos</button>
+      <button id="wiki-link">more hobby information</button>
       <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="hobby-plan">my saved hobbies</button>
       <button id="restart">search for another hobby</button> -->
     </section>
-
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Make a plan</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p>which day(s) do you want to learn about your hobby on?</p>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckMonday">
-              <label class="form-check-label" for="flexCheckMonday">
-                Monday
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckTuesday">
-              <label class="form-check-label" for="flexCheckTuesday">
-                Tuesday
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckWednesday">
-              <label class="form-check-label" for="flexCheckWednesday">
-                Wednesday
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckThursday">
-              <label class="form-check-label" for="flexCheckThursday">
-                Thursday
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckFriday">
-              <label class="form-check-label" for="flexCheckFriday">
-                Friday
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckSaturday">
-              <label class="form-check-label" for="flexCheckSaturday">
-                Saturday
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckSunday">
-              <label class="form-check-label" for="flexCheckSunday">
-                Sunday
-              </label>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveDays">Save Days</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
+    <section class="container-sm" id="videos">
+      <!-- <h2>Here's some videos to get you started</h2> -->
+      <!-- <button id="category-hobby">NEW {category} HOBBY</button> -->
+      <!-- <button id="start-over">START OVER</button> -->
+    </section>
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -171,7 +115,7 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
-
+  </main>
 
 </body>
 
