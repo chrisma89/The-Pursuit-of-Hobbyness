@@ -82,9 +82,21 @@ $(".hobby-category").on("click", function (e) {
     hobbySection.append($("<button>").text("Take me to the videos").addClass("videosgeneratorbtn btn-pink btn-lg"))
     hobbySection.append($("<button>").text("What is " + hobbyName).addClass("wikipedialinkgenerator btn-yellow btn-lg"))
     hobbySection.append($("<button>").text("New " + dataCategory + " hobby").addClass("samecategoryhobbygenerator btn-yellow btn-lg"))
-    hobbySection.append($("<button>").text("Start Over").addClass("btn-yellow btn-lg").attr("src", "./index.html"))
+    hobbySection.append($("<button>").text("Start Over").addClass("startoverbtn btn-yellow btn-lg"))
 
-   
+    $(".startoverbtn").on("click", function(e){
+      e.preventDefault()
+      window.location.href = "index.html";
+    })
+
+
+
+    
+
+    //  $(".samecategoryhobbygenerator").on("click", function(e){
+    //             e.preventDefault();
+    //             $(this.dataCategory)
+    //  })
    
 
     // function call to store searched hobbies in local storage
@@ -95,6 +107,7 @@ $(".hobby-category").on("click", function (e) {
 
        $(".videosgeneratorbtn").on("click", function(e){
         e.preventDefault()
+        $("#hobby").css("display", "none");
 
     // youtube api
        youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
@@ -109,8 +122,17 @@ $(".hobby-category").on("click", function (e) {
       console.log(data)
 
       let videoItems = data.items
+      
       // embedCustomVideos();
       let videoSection = $("#videos")
+      videoSection.append($("<button>").text("My Hobbies").addClass("myhobbiesbtn btn-yellow btn-lg"))
+
+    $(".myhobbiesbtn").on("click", function(e){
+      e.preventDefault()
+      window.location.href = "myhobbies.html";
+    })
+      let videoHeader = $("<h3>").text("Here are some videos to help you get started on " + hobbyName)
+      videoSection.append(videoHeader)
       for (let i= 0; i< videoItems.length; i++){
          let videoID = data.items[i].id.videoId
   console.log(videoID)
@@ -126,6 +148,13 @@ $(".hobby-category").on("click", function (e) {
 
   videoSection.append(videoDIv, videoIframe);
       }
+      videoSection.append($("<button>").text("Start Over").addClass("startoverbtn btn-yellow btn-lg"))
+
+    $(".startoverbtn").on("click", function(e){
+      e.preventDefault()
+      window.location.href = "index.html";
+    })
+
       })
       }
     )
