@@ -1,46 +1,24 @@
-// Pseudocode 
-// 1. Landing Page - 
-// A. Heading Display "Pursuit of Hobbies" [HTML - static - id ="header", text= "Pursuit Oh Hobbies.(Next Line)- Explore and create a hobby!"(need to decide on tag line)]
-// B. [HTML- static- text = "Please pick a category" / css- 6 cards with images, and text overlay??(General/ Sports/Education/Collection/Competition/Observation)/ Javascript- make images clickable with event listeners, enable api call on click and bring in the next page with data]
+// hide categories section on page load
+$(function () {
+  $("#categories").css("display", "none");
+});
 
-// 2. Data Page-
-// A. Landing page disappears and Data Page appears[ JS- display hide (need id for both landing and data page html content to manipulate visibility)]
-// B. Heading display "We recommend [Randomly chosen Hobby from the chosen category]"[Needs id/class for displaying JS dynamic content. JS- take data.hobby and add in to text and append]
-// C. display 5 youtube videos [ HTML - class/id for the videos section to able to append videos/ CSS- could use cards again or carousel??]
-// D. Static HTML - 3 Buttons - 1. More- Hobby Information [JS- event listener attached- needs HTML id/class - if clicked- bring on Wikipedia Link on the same page??] 2. Make a hobby plan [JS- event listener attached- needs HTML id/class - if clicked- bring on a modal to make a planner on the next page?? 3. Search for another hobby (JS- event listener attached- needs HTML id/class - if clicked- take back to landing page) ]
-
-// 3. Planner Modal? Or page with dropdown lists??
-// Modal - with drop down list? (Monday to Sunday) - User picks their day/days 
-// Hours - Modal with drop down list? (Morning/Afternoon/Evening- time blocks like 6-7pm??)
-// Save button that is clickable with event listener- brings on planner page
-
-// 4. Planner Page
-// A. Enter - UserName - store in local storage [ HTML - static- form imput /CSS- forms /JS- collect user input and store in local storage with setItem]
-// B. Display - Chosen hobby and schedule (with option to change??)
-// C. A note section ? - to keep persistent data that the user might use to keep notes
-// D. Save button - [on click - retrieves username from local storage getItem and displays - username, hobby, schedule and notes] 
-
-// could add start again button - to go back to landing page
-
-$(function(){
-  $("#categories").css("display", "none")
-})
-
-// find new hobby button
-$(".newhobbybtn").on("click", function(){
+// 'find new hobby' button opens categories section
+$(".newhobbybtn").on("click", function () {
   $("#welcome").css("display", "none");
-  $("#categories").css("display", "block")
-})
+  $("#categories").css("display", "block");
+});
 
-
-
-
+// 'my-hobbies' button on home page takes user to saved hobbies page
+$(".my-hobbies").on("click", function (e) {
+  e.preventDefault();
+  window.location.href = "myhobbies.html";
+});
 
 // Random Hobby generator- APis Ninja API Key
 APIkey = "HQJGUX8MyF1GgKP0bU2umUaZZp0XuqHXsfD4kWju";
 
 // fetch call for random hobbies generator on user click of a category
-
 $(".hobby-category").on("click", function (e) {
   e.preventDefault();
 
@@ -49,173 +27,201 @@ $(".hobby-category").on("click", function (e) {
 
   fetch(queryURL, {
     headers: {
-      'X-Api-Key': APIkey
-    }
+      "X-Api-Key": APIkey,
+    },
   })
-
-  .then(function(response){
-    return response.json()
-  })
-  .then(function(data){
-    console.log(data)
-
-     // Random hobby suggestion appended to page
-     let hobbyName = data.hobby;
-     let wikiLink = data.link;
-    //  let randomHobby = $("h3").text(hobbyName)
-    //  $("body").append(randomHobby)
-    
-    $("#categories").css("display", "none");
-    $("#hobby").css("display", "block");
-
-    let hobbySection = $("#hobby")
-
-    // need 4 buttons-need a tag line array
-    let taglineArray = ["Have you thought about ", "We recommend ", "Ever considered ", "Here is something interesting : ", "What about "]
-    
-    // for(let i =0; i < taglineArray.length; i++){
-    let hobbySectionText = $("<h3>").text(taglineArray[0] + hobbyName + " ? ")
-    hobbySection.append(hobbySectionText)
-    // return
-    // }
-
-    hobbySection.append($("<button>").text("Take me to the videos").addClass("videosgeneratorbtn btn-pink btn-lg"))
-    hobbySection.append($("<button>").text("What is " + hobbyName).addClass("wikipedialinkgenerator btn-yellow btn-lg"))
-    hobbySection.append($("<button>").text("New " + dataCategory + " hobby").addClass("samecategoryhobbygenerator btn-yellow btn-lg"))
-    hobbySection.append($("<button>").text("Start Over").addClass("startoverbtn btn-yellow btn-lg"))
-
-    $(".startoverbtn").on("click", function(e){
-      e.preventDefault()
-      window.location.href = "index.html";
-    })
-
-
-
-    
-
-    //  $(".samecategoryhobbygenerator").on("click", function(e){
-    //             e.preventDefault();
-    //             $(this.dataCategory)
-    //  })
-   
-
-    // function call to store searched hobbies in local storage
-    storeHobbies(hobbyName, dataCategory);
-    
-    // youtube videos appending
-       console.log(hobbyName, dataCategory)
-
-       $(".videosgeneratorbtn").on("click", function(e){
-        e.preventDefault()
-        $("#hobby").css("display", "none");
-
-    // youtube api
-       youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
-
-       youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6`
-
-    fetch(youtubeQueryURL)
-    .then(function(response){
-      return response.json()
+    .then(function (response) {
+      return response.json();
     })
     .then(function (data) {
-      console.log(data)
+      console.log(data);
 
-      let videoItems = data.items
-      
-      // embedCustomVideos();
-      let videoSection = $("#videos")
-      videoSection.append($("<button>").text("My Hobbies").addClass("myhobbiesbtn btn-yellow btn-lg"))
+      //  data captured onto variables
+      let hobbyName = data.hobby;
+      let wikiLink = data.link;
 
-    $(".myhobbiesbtn").on("click", function(e){
-      e.preventDefault()
-      window.location.href = "myhobbies.html";
-    })
-      let videoHeader = $("<h3>").text("Here are some videos to help you get started on " + hobbyName)
-      videoSection.append(videoHeader)
-      for (let i= 0; i< videoItems.length; i++){
-         let videoID = data.items[i].id.videoId
-  console.log(videoID)
-  let videoDIv = $("<div>").addClass("col-md-4")
-  let videoIframe = $("<iframe>")
- 
-  videoIframe.attr("width", "560");
-  videoIframe.attr("height", "315");
-  videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
-  videoIframe.attr("frameborder", "0");
-  videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
-  videoIframe.attr("allowfullscreen", "");
+      // hobby info page display
+      $("#categories").css("display", "none");
+      $("#hobby").css("display", "block");
 
-  videoSection.append(videoDIv, videoIframe);
-      }
-      videoSection.append($("<button>").text("Start Over").addClass("startoverbtn btn-yellow btn-lg"))
+      let hobbySection = $("#hobby");
 
-    $(".startoverbtn").on("click", function(e){
-      e.preventDefault()
-      window.location.href = "index.html";
-    })
+      // this section needs works
+      let taglineArray = [
+        "Have you thought about ",
+        "We recommend ",
+        "Ever considered ",
+        "Here is something interesting : ",
+        "What about ",
+      ];
 
-      })
-      }
-    )
-  
-  
+      // for(let i =0; i < taglineArray.length; i++){
+      let hobbySectionText = $("<h3>").text(
+        taglineArray[0] + hobbyName + " ? "
+      );
+      hobbySection.append(hobbySectionText);
+      // return
+      // }
+      //
 
-    // dynamically created what is? button takes user to wikipedia page
-    $(".wikipedialinkgenerator").on("click", function(e){
-       e.preventDefault();
-      
-       $(this).attr("href", wikiLink).attr("target" , "_blank")
-       window.open($(this).attr("href"), '_blank');
+      // 4 dynamic buttons appended onto page
+      hobbySection.append(
+        $("<button>")
+          .text("Take me to the videos")
+          .addClass("videosgeneratorbtn btn-pink btn-lg")
+      );
+      hobbySection.append(
+        $("<button>")
+          .text("What is " + hobbyName)
+          .addClass("wikipedialinkgenerator btn-yellow btn-lg")
+      );
+      hobbySection.append(
+        $("<button>")
+          .text("New " + dataCategory + " hobby")
+          .addClass("samecategoryhobbygenerator btn-yellow btn-lg")
+      );
+      hobbySection.append(
+        $("<button>")
+          .text("Start Over")
+          .addClass("startoverbtn btn-yellow btn-lg")
+      );
 
-    })
-})
-})
+      // event- listeners added to dynamic buttons
+      $(".startoverbtn").on("click", function (e) {
+        e.preventDefault();
+        window.location.href = "index.html";
+      });
 
+      // what is? button takes user to wikipedia page
+      $(".wikipedialinkgenerator").on("click", function (e) {
+        e.preventDefault();
 
+        $(this).attr("href", wikiLink).attr("target", "_blank");
+        window.open($(this).attr("href"), "_blank");
+      });
+
+      // this section needs work
+      //  $(".samecategoryhobbygenerator").on("click", function(e){
+      //             e.preventDefault();
+      //             $(this.dataCategory)
+      //  })
+      //
+
+      // function call to store searched hobbies in local storage under each category
+      storeHobbies(hobbyName, dataCategory);
+      console.log(hobbyName, dataCategory);
+
+      // youtube videos appending ('take me to the videos' button)
+      $(".videosgeneratorbtn").on("click", function (e) {
+        e.preventDefault();
+        $("#hobby").css("display", "none");
+
+        // youtube api
+        youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+
+        youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6`;
+
+        fetch(youtubeQueryURL)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data);
+
+            let videoItems = data.items;
+
+            // embedCustomVideos();
+            let videoSection = $("#videos");
+            videoSection.append(
+              $("<button>")
+                .text("My Hobbies")
+                .addClass("myhobbiesbtn btn-yellow btn-lg")
+            );
+
+            // My hobbies button on videos page takes user to saved hobbies
+            $(".myhobbiesbtn").on("click", function (e) {
+              e.preventDefault();
+              window.location.href = "myhobbies.html";
+            });
+
+            let videoHeader = $("<h3>").text(
+              "Here are some videos to help you get started on " + hobbyName
+            );
+            videoSection.append(videoHeader);
+            for (let i = 0; i < videoItems.length; i++) {
+              let videoID = data.items[i].id.videoId;
+              console.log(videoID);
+              let videoDIv = $("<div>").addClass("col-md-4");
+              let videoIframe = $("<iframe>");
+
+              videoIframe.attr("width", "560");
+              videoIframe.attr("height", "315");
+              videoIframe.attr(
+                "src",
+                "https://www.youtube.com/embed/" + videoID
+              );
+              videoIframe.attr("frameborder", "0");
+              videoIframe.attr(
+                "allow",
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              );
+              videoIframe.attr("allowfullscreen", "");
+
+              videoSection.append(videoDIv, videoIframe);
+            }
+            videoSection.append(
+              $("<button>")
+                .text("Start Over")
+                .addClass("startoverbtn btn-yellow btn-lg")
+            );
+
+            $(".startoverbtn").on("click", function (e) {
+              e.preventDefault();
+              window.location.href = "index.html";
+            });
+          });
+      });
+    });
+});
 
 // function to store search hobbies/history into local storage
 function storeHobbies(hobbyName, dataCategory) {
-  let general =[];
+  let general = [];
   let sports_and_outdoors = [];
   let education = [];
   let collection = [];
   let competition = [];
   let observation = [];
   general = JSON.parse(localStorage.getItem("general")) || [];
-  sports_and_outdoors = JSON.parse(localStorage.getItem("sports_and_outdoors")) || [];
+  sports_and_outdoors =
+    JSON.parse(localStorage.getItem("sports_and_outdoors")) || [];
   education = JSON.parse(localStorage.getItem("education")) || [];
   collection = JSON.parse(localStorage.getItem("collection")) || [];
   competition = JSON.parse(localStorage.getItem("competition")) || [];
   observation = JSON.parse(localStorage.getItem("observation")) || [];
 
-  if (dataCategory === "general"){
-    general.push(hobbyName)
-    localStorage.setItem("general" , JSON.stringify(general))
+  if (dataCategory === "general") {
+    general.push(hobbyName);
+    localStorage.setItem("general", JSON.stringify(general));
+  } else if (dataCategory === "sports_and_outdoors") {
+    sports_and_outdoors.push(hobbyName);
+    localStorage.setItem(
+      "sports_and_outdoors",
+      JSON.stringify(sports_and_outdoors)
+    );
+  } else if (dataCategory === "education") {
+    education.push(hobbyName);
+    localStorage.setItem("education", JSON.stringify(education));
+  } else if (dataCategory === "collection") {
+    collection.push(hobbyName);
+    localStorage.setItem("collection", JSON.stringify(collection));
+  } else if (dataCategory === "competition") {
+    competition.push(hobbyName);
+    localStorage.setItem("competition", JSON.stringify(competition));
+  } else if (dataCategory === "observation") {
+    observation.push(hobbyName);
+    localStorage.setItem("observation", JSON.stringify(observation));
   }
-  else if (dataCategory === "sports_and_outdoors"){
-    sports_and_outdoors.push(hobbyName)
-    localStorage.setItem("sports_and_outdoors" , JSON.stringify(sports_and_outdoors))
-  }
-  else if (dataCategory === "education"){
-    education.push(hobbyName)
-    localStorage.setItem("education" , JSON.stringify(education))
-  }
-  else if (dataCategory === "collection"){
-    collection.push(hobbyName)
-    localStorage.setItem("collection" , JSON.stringify(collection))
-  }
-  else if (dataCategory === "competition"){
-    competition.push(hobbyName)
-    localStorage.setItem("competition" , JSON.stringify(competition))
-  }
-  else if(dataCategory === "observation"){
-    observation.push(hobbyName)
-    localStorage.setItem("observation" , JSON.stringify(observation))
-  }
-
-
-
 
   // let storedHobbies = [];
   // // let category = [];
@@ -231,29 +237,12 @@ function storeHobbies(hobbyName, dataCategory) {
 
   // localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
   // localStorage.setItem("searchedcategory", JSON.stringify(category));
-
 }
-
-
-// Button to restart the hobby search
-$("#restart").on("click", function (e) {
-  e.preventDefault()
-  window.location.href = "index.html";
-})
-
-
-// button to take to saved hobbies
-$("#hobby-plan").on("click", function (e) {
-  e.preventDefault();
-  window.location.href = "myhobbies.html";
-})
 
 // youtube api
 APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
-
 // function to embed videos based on the randomly generated hobby
-
 
 // function embedCustomVideos (){
 
@@ -262,7 +251,7 @@ APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 //   videoID = data.item[0].id.videoId
 //   console.log(videoID)
 //   let videoIframe = $("<iframe>")
- 
+
 //   videoIframe.attr("width", "560");
 //   videoIframe.attr("height", "315");
 //   videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
@@ -272,6 +261,5 @@ APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
 //   videoSection.append(videoIframe);
 // }
-
 
 // $(".something").attr( { title:"Test", alt:"Test2" } );
