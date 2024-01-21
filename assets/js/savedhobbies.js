@@ -8,30 +8,34 @@ $(document).ready(function(){
   // function to renderbuttons for search history onto the page
 
 function renderbuttons (){
+
+  // saved hobbies under each category is made to render onto its own parent category
   $(".savedgeneral").on("click", function(e){
     e.preventDefault();
 
     let general = JSON.parse(localStorage.getItem("general"))
     let generalbutton = $(".generalcontainer")
-    // generalbutton.empty()
+   
     for (let i=0; i <general.length; i++){
       ;
       generalbutton.append($("<button>").text(general[i]).addClass("btn-pink"))
     }
   })
 
+  // sports category
   $(".savedsports").on("click", function(e){
     e.preventDefault();
 
     let sports_and_outdoors = JSON.parse(localStorage.getItem("sports_and_outdoors"))
     let sportsbutton = $(".sportscontainer")
-    // generalbutton.empty()
+
     for (let i=0; i < sports_and_outdoors.length; i++){
       ;
       sportsbutton.append($("<button>").text(sports_and_outdoors[i]).addClass("btn-pink"))
     }
   })
 
+   // education category
   $(".savededucation").on("click", function(e){
     e.preventDefault();
 
@@ -44,6 +48,7 @@ function renderbuttons (){
     }
   })
 
+   // collection category
   $(".savedcollection").on("click", function(e){
     e.preventDefault();
 
@@ -56,6 +61,7 @@ function renderbuttons (){
     }
   })
 
+   // competition category
   $(".savedcompetition").on("click", function(e){
     e.preventDefault();
 
@@ -68,6 +74,7 @@ function renderbuttons (){
     }
   })
 
+  // observation category
   $(".savedobservation").on("click", function(e){
     e.preventDefault();
 
@@ -79,15 +86,4 @@ function renderbuttons (){
       observationbutton.append($("<button>").text(observation[i]).addClass("btn-pink"))
     }
   })
-
-
- 
-//  let storedHobbies = JSON.parse(localStorage.getItem("searchedHobby"))
-//  let category = JSON.parse(localStorage.getItem("searchedcategory"))
-
-//  console.log(category)
-  //  for (let i =0; i<storedHobbies.length; i++){
-  //   let searchedButton = $("<button>").text(storedHobbies[i]).addClass("btn-primary")
-  //   $(".saved-hobbies").append(searchedButton)
-  //  }
 }
