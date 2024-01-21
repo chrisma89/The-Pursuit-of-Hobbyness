@@ -222,44 +222,10 @@ function storeHobbies(hobbyName, dataCategory) {
     observation.push(hobbyName);
     localStorage.setItem("observation", JSON.stringify(observation));
   }
-
-  // let storedHobbies = [];
-  // // let category = [];
-  // storedHobbies = JSON.parse(localStorage.getItem("searchedHobby")) || [];
-  // category = JSON.parse(localStorage.getItem("searchedcategory")) || [];
-
-  // if (!storedHobbies.includes(hobbyName)) {
-  //   storedHobbies.push(hobbyName);
-  // }
-  // if (!category.includes(dataCategory)) {
-  //   category.push(dataCategory);
-  // }
-
-  // localStorage.setItem("searchedHobby", JSON.stringify(storedHobbies));
-  // localStorage.setItem("searchedcategory", JSON.stringify(category));
 }
 
 // youtube api
 APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
-// function to embed videos based on the randomly generated hobby
-
-// function embedCustomVideos (){
-
-//   // will need a loop
-//   let videoSection = $("#videos")
-//   videoID = data.item[0].id.videoId
-//   console.log(videoID)
-//   let videoIframe = $("<iframe>")
-
-//   videoIframe.attr("width", "560");
-//   videoIframe.attr("height", "315");
-//   videoIframe.attr("src", "https://www.youtube.com/embed/" + videoID);
-//   videoIframe.attr("frameborder", "0");
-//   videoIframe.attr("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
-//   videoIframe.attr("allowfullscreen", "");
-
-//   videoSection.append(videoIframe);
-// }
 
 // $(".something").attr( { title:"Test", alt:"Test2" } );

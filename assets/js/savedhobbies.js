@@ -17,7 +17,7 @@ function renderbuttons (){
     let generalbutton = $(".generalcontainer")
     generalbutton.empty()
     for (let i=0; i <general.length; i++){
-      ;
+      
       generalbutton.append($("<button>").text(general[i]).addClass("btn-pink"))
     }
   })
@@ -31,7 +31,7 @@ function renderbuttons (){
     
     sportsbutton.empty()
     for (let i=0; i < sports_and_outdoors.length; i++){
-      ;
+      
       sportsbutton.append($("<button>").text(sports_and_outdoors[i]).addClass("btn-pink"))
     }
   })
@@ -44,7 +44,7 @@ function renderbuttons (){
     let educationbutton = $(".educationcontainer")
     educationbutton.empty()
     for (let i=0; i < education.length; i++){
-      ;
+      
       educationbutton.append($("<button>").text(education[i]).addClass("btn-pink"))
     }
   })
@@ -57,7 +57,7 @@ function renderbuttons (){
     let collectionbutton = $(".collectioncontainer")
     collectionbutton.empty()
     for (let i=0; i < collection.length; i++){
-      ;
+      
       collectionbutton.append($("<button>").text(collection[i]).addClass("btn-pink"))
     }
   })
@@ -70,7 +70,7 @@ function renderbuttons (){
     let competitionbutton = $(".competitioncontainer")
      competitionbutton.empty()
     for (let i=0; i < competition.length; i++){
-      ;
+      
       competitionbutton.append($("<button>").text(competition[i]).addClass("btn-pink"))
     }
   })
@@ -83,7 +83,7 @@ function renderbuttons (){
     let observationbutton = $(".observationcontainer")
     observationbutton.empty()
     for (let i=0; i < observation.length; i++){
-      ;
+      
       observationbutton.append($("<button>").text(observation[i]).addClass("btn-pink"))
     }
   })
