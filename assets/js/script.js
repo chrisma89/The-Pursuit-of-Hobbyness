@@ -137,6 +137,16 @@ $(".hobby-category").on("click", function (e) {
                 .text("My Hobbies")
                 .addClass("myhobbiesbtn btn-yellow btn-lg")
             );
+            videoSection.append(
+              $("<button>")
+                .text("Start Over")
+                .addClass("startoverbtn btn-yellow btn-lg")
+            );
+
+            $(".startoverbtn").on("click", function (e) {
+              e.preventDefault();
+              window.location.href = "index.html";
+            });
 
             // My hobbies button on videos page takes user to saved hobbies
             $(".myhobbiesbtn").on("click", function (e) {
@@ -148,10 +158,11 @@ $(".hobby-category").on("click", function (e) {
               "Here are some videos to help you get started on " + hobbyName
             );
             videoSection.append(videoHeader);
+            let videoDIv = $("<div>").addClass("col-md-4");
             for (let i = 0; i < videoItems.length; i++) {
               let videoID = data.items[i].id.videoId;
               console.log(videoID);
-              let videoDIv = $("<div>").addClass("col-md-4");
+              
               let videoIframe = $("<iframe>");
 
               videoIframe.attr("width", "560");
@@ -167,18 +178,10 @@ $(".hobby-category").on("click", function (e) {
               );
               videoIframe.attr("allowfullscreen", "");
 
-              videoSection.append(videoDIv, videoIframe);
+              videoDIv.append(videoIframe);
+              videoSection.append(videoDIv)
             }
-            videoSection.append(
-              $("<button>")
-                .text("Start Over")
-                .addClass("startoverbtn btn-yellow btn-lg")
-            );
-
-            $(".startoverbtn").on("click", function (e) {
-              e.preventDefault();
-              window.location.href = "index.html";
-            });
+            
           });
       });
     });
