@@ -5,11 +5,14 @@
   --primaryBtnBg: #E78EA9;
   --secondaryBtnBg: #FFFBE7;
   --darkGreen: #08565E;
+
+  --headerFont: 'Lexend', sans-serif;
+  --bodyFont: 'Nunito Sans', sans-serif;
 }
 
 body {
   background-color: var(--primaryBg);
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--bodyFont)
 }
 
 main {
@@ -30,7 +33,7 @@ display: flex;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lexend', sans-serif;
+  font-family: var(--headerFont)
 }
 
 .card h2 {
@@ -39,15 +42,9 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 0 50px BLACK;
 }
 
-
-section,
-.bg-body-tertiary {
-  background-color: var(--secondaryBg) !important;
-  
-}
-
 .hobby-section {
-  color: var(--darkGreen)
+  color: var(--darkGreen);
+  background-color: var(--secondaryBg);
 } 
 
 .hero-banner {
@@ -60,6 +57,7 @@ section,
 .btn {
   letter-spacing: 2px;
   font-size: 16px;
+  padding: 12px 25px;
 }
 
 .btn-pink,
