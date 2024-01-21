@@ -167,6 +167,15 @@ iframe {
   margin-bottom: 0 !important;
 }
 
+.row.history-buttons {
+  row-gap: 24px;
+}
+
+.history-buttons .btn {
+  width: 100%;
+  white-space: normal;
+}
+
 @media (max-width : 767px) {
 
    .navbar>.container-fluid {
