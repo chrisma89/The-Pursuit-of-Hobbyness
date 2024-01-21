@@ -41,10 +41,12 @@ iframe {
   border-radius: 25px;
 }
 
-.card h2 {
+.card h3 {
   -webkit-filter: text-shadow;
           filter: text-shadow;
   text-shadow: 0 0 50px BLACK;
+  font-size: 2rem;
+    margin: 0;
 }
 
 .p-5 {
@@ -165,6 +167,12 @@ iframe {
 }
 
 @media (max-width : 767px) {
+
+   .navbar>.container-fluid {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
 
   .p-5 {
     padding: 40px !important;
