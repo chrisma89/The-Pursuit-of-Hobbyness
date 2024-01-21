@@ -137,16 +137,6 @@ $(".hobby-category").on("click", function (e) {
                 .text("My Hobbies")
                 .addClass("myhobbiesbtn btn-yellow btn-lg")
             );
-            videoSection.append(
-              $("<button>")
-                .text("Start Over")
-                .addClass("startoverbtn btn-yellow btn-lg")
-            );
-
-            $(".startoverbtn").on("click", function (e) {
-              e.preventDefault();
-              window.location.href = "index.html";
-            });
 
             // My hobbies button on videos page takes user to saved hobbies
             $(".myhobbiesbtn").on("click", function (e) {
@@ -158,15 +148,26 @@ $(".hobby-category").on("click", function (e) {
               "Here are some videos to help you get started on " + hobbyName
             );
             videoSection.append(videoHeader);
-            let videoDIv = $("<div>").addClass("col-md-4");
+            let videoMain = $("<div>").addClass("row");
+            videoSection.append(videoMain);
             for (let i = 0; i < videoItems.length; i++) {
+              let videoDIv = $("<div>").addClass("col-md-4");
               let videoID = data.items[i].id.videoId;
               console.log(videoID);
+              let videoTitle = data.items[i].snippet.title.trim();
+              let titleElement = $("<div>").text(videoTitle);
+
               
+              titleElement.css({
+                height: "10px",
+                width: "10px",
+              
+              });
+
               let videoIframe = $("<iframe>");
 
-              videoIframe.attr("width", "560");
-              videoIframe.attr("height", "315");
+              videoIframe.attr("width", "350");
+              videoIframe.attr("height", "215");
               videoIframe.attr(
                 "src",
                 "https://www.youtube.com/embed/" + videoID
@@ -178,10 +179,21 @@ $(".hobby-category").on("click", function (e) {
               );
               videoIframe.attr("allowfullscreen", "");
 
-              videoDIv.append(videoIframe);
-              videoSection.append(videoDIv)
+              videoDIv.append(videoTitle, videoIframe);
+              videoMain.append(videoDIv);
+              videoSection.append(videoMain);
             }
-            
+
+            videoSection.append(
+              $("<button>")
+                .text("Start Over")
+                .addClass("startoverbtn btn-yellow btn-lg")
+            );
+
+            $(".startoverbtn").on("click", function (e) {
+              e.preventDefault();
+              window.location.href = "index.html";
+            });
           });
       });
     });
@@ -229,6 +241,5 @@ function storeHobbies(hobbyName, dataCategory) {
 
 // youtube api
 APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
-
 
 // $(".something").attr( { title:"Test", alt:"Test2" } );
