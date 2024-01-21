@@ -18,7 +18,7 @@ function renderbuttons (){
     generalbutton.empty()
 
     if(!general){
-      generalbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-pink btn"))
+      generalbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
     for (let i=0; i <general.length; i++){
       
@@ -34,6 +34,11 @@ function renderbuttons (){
     let sportsbutton = $(".sportscontainer")
     
     sportsbutton.empty()
+
+    if(!sports_and_outdoors){
+      sportsbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
+    }
+
     for (let i=0; i < sports_and_outdoors.length; i++){
       
       sportsbutton.append($("<button>").text(sports_and_outdoors[i]).addClass("btn-pink btn"))
@@ -47,6 +52,11 @@ function renderbuttons (){
     let education = JSON.parse(localStorage.getItem("education"))
     let educationbutton = $(".educationcontainer")
     educationbutton.empty()
+
+    if(!education){
+      educationbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
+    }
+
     for (let i=0; i < education.length; i++){
       
       educationbutton.append($("<button>").text(education[i]).addClass("btn-pink btn"))
@@ -60,6 +70,11 @@ function renderbuttons (){
     let collection = JSON.parse(localStorage.getItem("collection"))
     let collectionbutton = $(".collectioncontainer")
     collectionbutton.empty()
+
+    if(!collection){
+      collectionbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
+    }
+
     for (let i=0; i < collection.length; i++){
       
       collectionbutton.append($("<button>").text(collection[i]).addClass("btn-pink btn"))
@@ -73,6 +88,11 @@ function renderbuttons (){
     let competition = JSON.parse(localStorage.getItem("competition"))
     let competitionbutton = $(".competitioncontainer")
      competitionbutton.empty()
+
+     if(!competition){
+      competitionbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
+    }
+
     for (let i=0; i < competition.length; i++){
       
       competitionbutton.append($("<button>").text(competition[i]).addClass("btn-pink btn"))
@@ -86,6 +106,11 @@ function renderbuttons (){
     let observation = JSON.parse(localStorage.getItem("observation"))
     let observationbutton = $(".observationcontainer")
     observationbutton.empty()
+
+    if(!observation){
+      observationbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
+    }
+
     for (let i=0; i < observation.length; i++){
       
       observationbutton.append($("<button>").text(observation[i]).addClass("btn-pink btn"))
