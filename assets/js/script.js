@@ -51,20 +51,19 @@ $(".hobby-category").on("click", function (e) {
       // this section needs works
       let taglineArray = [
         "Have you thought about ",
-        "We recommend ",
+        "How about ",
         "Ever considered ",
-        "Here is something interesting : ",
+        "Would you like to try ",
         "What about ",
       ];
+      
+      let i = Math.floor(Math.random() * 5);
 
-      // for(let i =0; i < taglineArray.length; i++){
       let hobbySectionText = $("<h2>").text(
-        taglineArray[0] + hobbyName + " ? "
+        taglineArray[i] + hobbyName + " ? "
       ).addClass("display-5 fw-bold text-center mb-5");
       hobbySection.append(hobbySectionText);
-      // return
-      // }
-      //
+      
 
       // 4 dynamic buttons appended onto page
       hobbySection.append(
