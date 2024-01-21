@@ -157,6 +157,7 @@ iframe {
   text-align: center;
   margin: 24px auto;
   min-width: 320px;
+  max-width: 320px;
 }
 
 #hobby  button.startoverbtn {
@@ -173,7 +174,7 @@ iframe {
 }
 
 .btn-check:checked+.btn, 
-.btn.active, 
+.btn.active,
 .btn.show, 
 .btn:first-child:active, 
 :not(.btn-check)+.btn:active {
@@ -193,7 +194,7 @@ iframe {
   width: 100%;
 }
 
-ul.generalcontainer.dropdown-menu.show * + * {
+ul.dropdown-menu.show * + * {
   margin-top: 10px;
 }
 
