@@ -16,9 +16,13 @@ function renderbuttons (){
     let general = JSON.parse(localStorage.getItem("general"))
     let generalbutton = $(".generalcontainer")
     generalbutton.empty()
+
+    if(!general){
+      generalbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-pink btn"))
+    }
     for (let i=0; i <general.length; i++){
       
-      generalbutton.append($("<button>").text(general[i]).addClass("btn-pink"))
+      generalbutton.append($("<button>").text(general[i]).addClass("btn-pink btn"))
     }
   })
 
@@ -32,7 +36,7 @@ function renderbuttons (){
     sportsbutton.empty()
     for (let i=0; i < sports_and_outdoors.length; i++){
       
-      sportsbutton.append($("<button>").text(sports_and_outdoors[i]).addClass("btn-pink"))
+      sportsbutton.append($("<button>").text(sports_and_outdoors[i]).addClass("btn-pink btn"))
     }
   })
 
@@ -45,7 +49,7 @@ function renderbuttons (){
     educationbutton.empty()
     for (let i=0; i < education.length; i++){
       
-      educationbutton.append($("<button>").text(education[i]).addClass("btn-pink"))
+      educationbutton.append($("<button>").text(education[i]).addClass("btn-pink btn"))
     }
   })
 
@@ -58,7 +62,7 @@ function renderbuttons (){
     collectionbutton.empty()
     for (let i=0; i < collection.length; i++){
       
-      collectionbutton.append($("<button>").text(collection[i]).addClass("btn-pink"))
+      collectionbutton.append($("<button>").text(collection[i]).addClass("btn-pink btn"))
     }
   })
 
@@ -71,7 +75,7 @@ function renderbuttons (){
      competitionbutton.empty()
     for (let i=0; i < competition.length; i++){
       
-      competitionbutton.append($("<button>").text(competition[i]).addClass("btn-pink"))
+      competitionbutton.append($("<button>").text(competition[i]).addClass("btn-pink btn"))
     }
   })
 
@@ -84,7 +88,7 @@ function renderbuttons (){
     observationbutton.empty()
     for (let i=0; i < observation.length; i++){
       
-      observationbutton.append($("<button>").text(observation[i]).addClass("btn-pink"))
+      observationbutton.append($("<button>").text(observation[i]).addClass("btn-pink btn"))
     }
   })
 }

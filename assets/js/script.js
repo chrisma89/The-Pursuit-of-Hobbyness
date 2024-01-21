@@ -43,6 +43,7 @@ $(".hobby-category").on("click", function (e) {
       // hobby info page display
       $("#categories").css("display", "none");
       $("#hobby").css("display", "block");
+      $("#videos").css("display", "none");
 
       let hobbySection = $("#hobby");
 
@@ -68,22 +69,22 @@ $(".hobby-category").on("click", function (e) {
       hobbySection.append(
         $("<button>")
           .text("Take me to the videos")
-          .addClass("videosgeneratorbtn btn-pink btn-lg")
+          .addClass("videosgeneratorbtn btn-pink btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
           .text("What is " + hobbyName)
-          .addClass("wikipedialinkgenerator btn-yellow btn-lg")
+          .addClass("wikipedialinkgenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
           .text("New " + dataCategory + " hobby")
-          .addClass("samecategoryhobbygenerator btn-yellow btn-lg")
+          .addClass("samecategoryhobbygenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
           .text("Start Over")
-          .addClass("startoverbtn btn-yellow btn-lg")
+          .addClass("startoverbtn btn-yellow btn-lg btn")
       );
 
       // event- listeners added to dynamic buttons
@@ -115,6 +116,8 @@ $(".hobby-category").on("click", function (e) {
       $(".videosgeneratorbtn").on("click", function (e) {
         e.preventDefault();
         $("#hobby").css("display", "none");
+        $("#videos").css("display", "block");
+
 
         // youtube api
         youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
@@ -132,17 +135,17 @@ $(".hobby-category").on("click", function (e) {
 
             // embedCustomVideos();
             let videoSection = $("#videos");
-            videoSection.append(
-              $("<button>")
-                .text("My Hobbies")
-                .addClass("myhobbiesbtn btn-yellow btn-lg")
-            );
+            // videoSection.append(
+            //   $("<button>")
+            //     .text("My Hobbies")
+            //     .addClass("myhobbiesbtn btn-yellow btn-lg")
+            // );
 
-            // My hobbies button on videos page takes user to saved hobbies
-            $(".myhobbiesbtn").on("click", function (e) {
-              e.preventDefault();
-              window.location.href = "myhobbies.html";
-            });
+            // // My hobbies button on videos page takes user to saved hobbies
+            // $(".myhobbiesbtn").on("click", function (e) {
+            //   e.preventDefault();
+            //   window.location.href = "myhobbies.html";
+            // });
 
             let videoHeader = $("<h3>").text(
               "Here are some videos to help you get started on " + hobbyName
@@ -150,12 +153,13 @@ $(".hobby-category").on("click", function (e) {
             videoSection.append(videoHeader);
             let videoMain = $("<div>").addClass("row");
             videoSection.append(videoMain);
+
             for (let i = 0; i < videoItems.length; i++) {
               let videoDIv = $("<div>").addClass("col-md-6 col-xl-4");
               let videoID = data.items[i].id.videoId;
               console.log(videoID);
               let videoTitle = data.items[i].snippet.title.trim();
-              let titleElement = $("<div>").text(videoTitle);
+              let titleElement = $("<h4>").text(videoTitle);
 
               
               titleElement.css({
@@ -187,7 +191,7 @@ $(".hobby-category").on("click", function (e) {
             videoSection.append(
               $("<button>")
                 .text("Start Over")
-                .addClass("startoverbtn btn-yellow btn-lg")
+                .addClass("startoverbtn btn-yellow btn-lg btn")
             );
 
             $(".startoverbtn").on("click", function (e) {
