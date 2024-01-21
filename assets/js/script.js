@@ -1,12 +1,13 @@
 // hide categories section on page load
 $(function () {
   $("#categories").css("display", "none");
+  $("#videos").css("display", "none");
 });
 
 // 'find new hobby' button opens categories section
 $(".newhobbybtn").on("click", function () {
   $("#welcome").css("display", "none");
-  $("#categories").css("display", "block");
+   $("#categories").css("display", "block");
 });
 
 // 'my-hobbies' button on home page takes user to saved hobbies page
@@ -116,7 +117,8 @@ $(".hobby-category").on("click", function (e) {
       $(".videosgeneratorbtn").on("click", function (e) {
         e.preventDefault();
         $("#hobby").css("display", "none");
-        $("#videos").css("display", "block");
+        $("#categories").css("display", "none");
+        // $("#videos").css("display", "block");
 
 
         // youtube api
@@ -193,6 +195,7 @@ $(".hobby-category").on("click", function (e) {
                 .text("Start Over")
                 .addClass("startoverbtn btn-yellow btn-lg btn")
             );
+            $("#videos").css("display", "block");
 
             $(".startoverbtn").on("click", function (e) {
               e.preventDefault();
