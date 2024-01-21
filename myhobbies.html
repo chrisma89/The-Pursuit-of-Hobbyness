@@ -18,122 +18,147 @@
 
 <body>
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="index.html">The Pursuit of Hobbyness</a>
+    <div class="container-fluid px-3">
+      <a class="navbar-brand" href="./index.html">The Pursuit of Hobbyness</a><button style="visibility: hidden" class="btn btn-yellow my-hobbies mt-2" href="./myhobbies.html">MY HOBBIES</button>
+    </div>
+    </div>
   </nav>
-  <div class="header"></div>
 
-  <section class="container-sm hobby-section" id="categories">
-    <div class="p-5 mb-4 rounded-3">
-      <div class="container-fluid py-5">
-        <div class="row">
+  <main>
+  <section class="container-sm hobby-section rounded-5 p-0" id="categories">
+    <div class="p-5 ">
+      <div class="container-fluid">
+        
           <div id="history">
-            <h2>My Saved Hobbies</h2>
+            <h2 class="display-5 text-center fw-bold mb-5">My Saved Hobbies</h2>
+          
+
+          <div class="row history-buttons">
+            <div class="btn-group saved-hobbies col-md-6 col-xl-4">
+  
+              <div class="w-100">
+                <button type="button" class="btn btn-yellow dropdown-toggle savedgeneral"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  General
+                </button>
+                <ul class ="generalcontainer dropdown-menu"></ul>
+                <!-- <ul class= "dropdown-menu"> -->
+                   <!-- <li><a class="dropdown-item" href="#">Hobby 1</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 2</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 3</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li> -->
+                <!-- </ul> -->
+              </div>
+            </div>
+  
+            <div class="btn-group saved-hobbies col-md-6 col-xl-4">
+              <div class="w-100">
+                <button type="button" class="btn btn-yellow dropdown-toggle savedsports" 
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Sports and Outdoors
+                </button>
+                <ul class ="sportscontainer dropdown-menu"></ul>
+                <!-- <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Hobby 1</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 2</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 3</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> -->
+              </div>
+            </div>
+              
+            <div class="btn-group saved-hobbies col-md-6 col-xl-4">
+              <div class="w-100">
+                <button type="button" class="btn btn-yellow dropdown-toggle savededucation" 
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Education
+                </button>
+                <ul class ="educationcontainer dropdown-menu"></ul>
+                <!-- <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Hobby 1</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 2</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 3</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> -->
+              </div>
+            </div>
+  
+            <div class="btn-group saved-hobbies col-md-6 col-xl-4">
+              <div class="w-100">
+                <button type="button" class="btn btn-yellow dropdown-toggle savedcollection" 
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Collection
+                </button>
+                <ul class ="collectioncontainer dropdown-menu"></ul>
+                <!-- <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Hobby 1</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 2</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 3</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> -->
+              </div>
+            </div>
+  
+            <div class="btn-group saved-hobbies col-md-6 col-xl-4">
+              <div class="w-100">
+                <button type="button" class="btn btn-yellow dropdown-toggle savedcompetition" 
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Competition
+                </button>
+                <ul class ="competitioncontainer dropdown-menu"></ul>
+                <!-- <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Hobby 1</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 2</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 3</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> -->
+              </div>
+            </div>
+  
+              <div class="btn-group saved-hobbies col-md-6 col-xl-4">
+              <div class="w-100">
+                <button type="button" class="btn btn-yellow dropdown-toggle savedobservation" 
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Observation
+                </button>
+                <ul class ="observationcontainer dropdown-menu"></ul>
+                <!-- <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Hobby 1</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 2</a></li>
+                  <li><a class="dropdown-item" href="#">Hobby 3</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> -->
+              </div>
+            </div>
           </div>
+        
+        </div>
 
-          <div class="btn-group saved-hobbies">
-
-            <div>
-              <button type="button" class="btn btn-danger savedgeneral"
-                aria-expanded="false">
-                General
-              </button>
-              <div class ="generalcontainer"></div>
-              <!-- <ul class= "dropdown-menu"> -->
-                 <!-- <li><a class="dropdown-item" href="#">Hobby 1</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 2</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 3</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li> -->
-              <!-- </ul> -->
-            </div>
-
-            <div>
-              <button type="button" class="btn btn-danger savedsports" 
-                aria-expanded="false">
-                Sports and Outdoors
-              </button>
-              <div class ="sportscontainer"></div>
-              <!-- <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hobby 1</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 2</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 3</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
-              </ul> -->
-            </div>
-            <div>
-              <button type="button" class="btn btn-danger savededucation" 
-                aria-expanded="false">
-                Education
-              </button>
-              <div class ="educationcontainer"></div>
-              <!-- <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hobby 1</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 2</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 3</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
-              </ul> -->
-            </div>
-            <div>
-              <button type="button" class="btn btn-danger savedcollection" 
-                aria-expanded="false">
-                Collection
-              </button>
-              <div class ="collectioncontainer"></div>
-              <!-- <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hobby 1</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 2</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 3</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
-              </ul> -->
-            </div>
-            <div>
-              <button type="button" class="btn btn-danger savedcompetition" 
-                aria-expanded="false">
-                Competition
-              </button>
-              <div class ="competitioncontainer"></div>
-              <!-- <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hobby 1</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 2</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 3</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
-              </ul> -->
-            </div>
-            <div>
-              <button type="button" class="btn btn-danger savedobservation" 
-                aria-expanded="false">
-                Observation
-              </button>
-              <div class ="observationcontainer"></div>
-              <!-- <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hobby 1</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 2</a></li>
-                <li><a class="dropdown-item" href="#">Hobby 3</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
-              </ul> -->
-            </div>
-          </div>
+        
         </div>
       </div>
 
   </section>
+
+</main>
 
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"

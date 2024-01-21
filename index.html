@@ -17,19 +17,19 @@
 </head>
 
 <body>
-  <div class="header"></div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-3">
+    <a class="navbar-brand" href="./index.html">The Pursuit of Hobbyness</a><button class="btn btn-yellow my-hobbies mt-2" href="./myhobbies.html">MY HOBBIES</button>
+    </div>
+  </nav>
 
   <main>
-    <section class="container-sm hobby-section" id="welcome">
-      <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="./index.html">The Pursuit of Hobbyness</a>
-      </nav>
-      <button class="btn btn-yellow my-hobbies">MY HOBBIES</button>
-      <div class="p-5 mb-4 rounded-3">
-        <div class="container-fluid py-5">
+    <section class="container-sm hobby-section rounded-5 p-0 my-4" id="welcome">
+      <div class="p-5">
+        <div class="container-fluid">
           <div class="hero-banner">
-            <h1 class="display-5 fw-bold">The Pursuit of Hobbyness</h1>
-            <p class="col-md-8 fs-4 mx-auto">Are you looking for a new hobby but not sure what you like? Use our online
+            <h1 class="display-5 fw-bold mb-4">The Pursuit of Hobbyness</h1>
+            <p class="col-md-10 fs-4 mb-4 mx-auto">Are you looking for a new hobby but not sure what you like? Use our online
               app to
               get
               a random hobby suggestion and video tips to get you started!</p>
@@ -38,71 +38,76 @@
         </div>
       </div>
     </section>
-    <section class="container-sm hobby-section" id="categories">
-      <div class="p-5 mb-4 rounded-3">
-        <div class="container-fluid py-5">
+   
+    <section class="container-sm my-4 hobby-section rounded-5 p-0" id="categories" style="display: none;">
+      <div class="p-5">
+        <div class="container-fluid">
           <div class="row">
-            <h2 class="category-title">Pick a category</h2>
-            <div class="col-md-4">
+            <h2 class="category-title display-5 fw-bold  text-center mb-5">Pick a category</h2>
+            <div class="col-md-6 col-xl-4">
               <div class="card hobby-category" data-category="general"
                 style="background-image: url('assets/images/general.jpg')">
                 <div class="overlay-text">
-                  <h2>General</h2>
+                  <h3>General</h3>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 col-xl-4">
               <div class="card hobby-category" data-category="sports_and_outdoors"
                 style="background-image: url('assets/images/outdoors.jpg')">
                 <div class="overlay-text">
-                  <h2>Sports and Outdoors</h2>
+                  <h3>Sports and Outdoors</h3>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 col-xl-4">
               <div class="card hobby-category" data-category="education"
                 style="background-image: url('assets/images/education-4.jpg')">
                 <div class="overlay-text">
-                  <h2>Education</h2>
+                  <h3>Education</h3>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 col-xl-4">
               <div class="card hobby-category" data-category="collection"
                 style="background-image: url('assets/images/collection-1.jpg');">
                 <div class="overlay-text">
-                  <h2>Collection</h2>
+                  <h3>Collection</h3>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 col-xl-4">
               <div class="card hobby-category" data-category="competition"
                 style="background-image: url('assets/images/competition.jpg');">
                 <div class="overlay-text">
-                  <h2>Competition</h2>
+                  <h3>Competition</h3>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 col-xl-4">
               <div class="card hobby-category" data-category="observation"
                 style="background-image: url('assets/images/birdwatching.jpg');">
                 <div class="overlay-text">
-                  <h2>Observation</h2>
+                  <h3>Observation</h3>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
-    <section class="container-sm" id="hobby">
+    
+    <section class="container-sm my-4 hobby-section rounded-5 p-5" id="hobby" style="display: none;">
       <!-- <h2>Have you thought about ?</h2> -->
-      <h3></h3>
+      <!-- <h3></h3> -->
       <!-- <button id="videos">take me to the videos</button>
       <button id="wiki-link">more hobby information</button>
       <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="hobby-plan">my saved hobbies</button>
       <button id="restart">search for another hobby</button> -->
     </section>
-    <section class="container-sm" id="videos">
+    
+    
+    <section class="container-sm my-4 hobby-section rounded-5 p-5" id="videos">
       <!-- <h2>Here's some videos to get you started</h2> -->
       <!-- <button id="category-hobby">NEW {category} HOBBY</button> -->
       <!-- <button id="start-over">START OVER</button> -->
