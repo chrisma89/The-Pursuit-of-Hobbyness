@@ -57,9 +57,9 @@ $(".hobby-category").on("click", function (e) {
       ];
 
       // for(let i =0; i < taglineArray.length; i++){
-      let hobbySectionText = $("<h3>").text(
+      let hobbySectionText = $("<h2>").text(
         taglineArray[0] + hobbyName + " ? "
-      );
+      ).addClass("display-5 fw-bold text-center mb-5");
       hobbySection.append(hobbySectionText);
       // return
       // }
@@ -147,9 +147,9 @@ $(".hobby-category").on("click", function (e) {
             //   window.location.href = "myhobbies.html";
             // });
 
-            let videoHeader = $("<h3>").text(
+            let videoHeader = $("<h2>").text(
               "Here are some videos to help you get started on " + hobbyName
-            );
+            ).addClass("display-5 fw-bold text-center mb-5");
             videoSection.append(videoHeader);
             let videoMain = $("<div>").addClass("row");
             videoSection.append(videoMain);
