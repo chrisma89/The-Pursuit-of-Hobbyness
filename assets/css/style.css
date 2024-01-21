@@ -146,14 +146,15 @@ iframe {
     padding: 25px;
 }
 
-#hobby h3,
+/* #hobby h3,
 #videos h3 {
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
   line-height: 1.2;
   text-align: center;
   margin-bottom: 3rem;
-}
+  font-weight: 700;
+} */
 
 #hobby button {
   display: block;
