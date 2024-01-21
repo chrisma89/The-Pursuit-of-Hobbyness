@@ -30,7 +30,7 @@ display: flex;
 -webkit-box-align: center;
     -ms-flex-align: center;
         align-items: center;
-        padding: 100px 16px;
+        padding: 65px 16px;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar-brand {
@@ -50,7 +50,7 @@ iframe {
 }
 
 .p-5 {
-  padding: 70px !important;
+  padding: 60px !important;
 }
 
 .navbar-expand-lg {
@@ -80,6 +80,7 @@ iframe {
   -o-transition: ease .3s;
   transition: ease .3s;
   text-transform: uppercase;
+  border: none;
 }
 
 .btn-pink  {
@@ -146,15 +147,10 @@ iframe {
     padding: 25px;
 }
 
-/* #hobby h3,
+#hobby h3,
 #videos h3 {
-  font-size: calc(1.425rem + 2.1vw);
-  font-weight: 300;
-  line-height: 1.2;
   text-align: center;
-  margin-bottom: 3rem;
-  font-weight: 700;
-} */
+}
 
 #hobby button {
   display: block;
@@ -174,6 +170,35 @@ iframe {
 .history-buttons .btn {
   width: 100%;
   white-space: normal;
+}
+
+.btn-check:checked+.btn, 
+.btn.active, 
+.btn.show, 
+.btn:first-child:active, 
+:not(.btn-check)+.btn:active {
+  border: none !important;
+  background-color: white;
+}
+
+.w-100 {
+  position: relative;
+}
+
+.dropdown-menu.show {
+  display: block;
+  max-height: 250px;
+  overflow: scroll;
+  padding: 10px;
+  width: 100%;
+}
+
+ul.generalcontainer.dropdown-menu.show * + * {
+  margin-top: 10px;
+}
+
+.dropdown-menu button {
+  width: 100%;
 }
 
 @media (max-width : 767px) {
