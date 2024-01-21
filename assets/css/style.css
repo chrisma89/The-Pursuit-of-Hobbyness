@@ -96,6 +96,17 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   width: 100%;
   border-radius: 25px;
   margin-bottom: 20px;
+  border: none;
+  -webkit-transition: ease .3s;
+  -o-transition: ease .3s;
+  transition: ease .3s;
+  cursor: pointer;
+}
+
+.hobby-category:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .overlay-text {
@@ -118,4 +129,5 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-size: 20px;
   background: rgb(0 0 0 / 10%);
     border-radius: 25px;
+    padding: 25px;
 }
