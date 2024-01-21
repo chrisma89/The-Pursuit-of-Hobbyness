@@ -7,6 +7,25 @@
   --darkGreen: #08565E;
 }
 
+body {
+  background-color: var(--primaryBg);
+  font-family: 'Nunito Sans', sans-serif;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lexend', sans-serif;
 }
@@ -17,10 +36,6 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 0 50px BLACK;
 }
 
-body {
-  background-color: var(--primaryBg);
-  font-family: 'Nunito Sans', sans-serif;
-}
 
 section,
 .bg-body-tertiary {
