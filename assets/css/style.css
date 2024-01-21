@@ -32,7 +32,7 @@ display: flex;
         align-items: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-family: var(--headerFont)
 }
 
@@ -40,6 +40,11 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-filter: text-shadow;
           filter: text-shadow;
   text-shadow: 0 0 50px BLACK;
+}
+
+.navbar-expand-lg {
+  position: absolute;
+  width: 100%;
 }
 
 .hobby-section {
@@ -58,16 +63,28 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 2px;
   font-size: 16px;
   padding: 12px 25px;
+  -webkit-transition: ease .3s;
+  -o-transition: ease .3s;
+  transition: ease .3s;
 }
 
-.btn-pink,
-.btn-primary  {
-  background-color: var(--primaryBtnBg) !important;
+.btn-pink  {
+  background-color: var(--primaryBtnBg);
   color: white;
+}
+
+.btn-pink:hover {
+  color: white;
+  background-color: #edabbf;
 }
 
 .btn-yellow {
   background-color: var(--secondaryBtnBg);
+  color: black;
+}
+
+.btn-yellow:hover {
+  background-color: #ffffff;
   color: black;
 }
 
