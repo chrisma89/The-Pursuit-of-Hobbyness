@@ -20,13 +20,14 @@ function renderbuttons (){
     if(!general){
       generalbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
+    else{
     for (let i=0; i <general.length; i++){
       let hobbyName = general[i];
       let newButton = $("<button>").text(hobbyName).addClass("btn-pink btn").on("click", function(){
         fetchData(hobbyName); // Pass hobbyName if needed in fetchData
       });
       generalbutton.append(newButton);
-    
+    }
     }
   })
 
@@ -42,11 +43,11 @@ function renderbuttons (){
     if(!sports_and_outdoors){
       sportsbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
-
+    else {
     for (let i=0; i < sports_and_outdoors.length; i++){
       
       sportsbutton.append($("<button>").text(sports_and_outdoors[i]).addClass("btn-pink btn"))
-    }
+    }}
   })
 
    // education category
@@ -60,11 +61,11 @@ function renderbuttons (){
     if(!education){
       educationbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
-
+    else {
     for (let i=0; i < education.length; i++){
       
       educationbutton.append($("<button>").text(education[i]).addClass("btn-pink btn"))
-    }
+    }}
   })
 
    // collection category
@@ -78,11 +79,11 @@ function renderbuttons (){
     if(!collection){
       collectionbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
-
+    else {
     for (let i=0; i < collection.length; i++){
       
       collectionbutton.append($("<button>").text(collection[i]).addClass("btn-pink btn"))
-    }
+    }}
   })
 
    // competition category
@@ -96,11 +97,11 @@ function renderbuttons (){
      if(!competition){
       competitionbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
-
+    else {
     for (let i=0; i < competition.length; i++){
       
       competitionbutton.append($("<button>").text(competition[i]).addClass("btn-pink btn"))
-    }
+    }}
   })
 
   // observation category
@@ -114,11 +115,12 @@ function renderbuttons (){
     if(!observation){
       observationbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
+    else {
 
     for (let i=0; i < observation.length; i++){
       
       observationbutton.append($("<button>").text(observation[i]).addClass("btn-pink btn"))
-    }
+    }}
   })
 }
 
