@@ -156,7 +156,7 @@ hobbyCategory.on("click", function (e) {
               let videoID = data.items[i].id.videoId;
               console.log(videoID);
               let videoTitle = data.items[i].snippet.title.trim();
-              let titleElement = $("<h4>").text(videoTitle);
+              let titleElement = $("<h3>").text(videoTitle);
 
               
               titleElement.css({
