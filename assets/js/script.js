@@ -162,17 +162,18 @@ function fetchData(dataCategory) {
               fetchData(dataCategory);
             });
 
-      // function call to store searched hobbies in local storage under each category
-      storeHobbies(hobbyName, dataCategory);
-      console.log(hobbyName, dataCategory);
-
-      // youtube videos appending ('take me to the videos' button)
-      $(".videosgeneratorbtn").on("click", function (e) {
-        e.preventDefault();
-        $("#hobby").css("display", "none");
-        $("#categories").css("display", "none");
-        // $("#videos").css("display", "block");
-
+            
+            // youtube videos appending ('take me to the videos' button)
+            $(".videosgeneratorbtn").on("click", function (e) {
+              e.preventDefault();
+              $("#hobby").css("display", "none");
+              $("#categories").css("display", "none");
+              // $("#videos").css("display", "block");
+              
+              // function call to store searched hobbies in local storage under each category
+              storeHobbies(hobbyName, dataCategory);
+              console.log(hobbyName, dataCategory);
+              
         // youtube api
         youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
