@@ -132,7 +132,7 @@ function fetchData(dataCategory) {
       );
       hobbySection.append(
         $("<button>")
-          .text("New " + dataCategory + " hobby")
+        .text("New " + dataCategory.replace(/_/g, ' ') + " hobby")
           .addClass("samecategoryhobbygenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
