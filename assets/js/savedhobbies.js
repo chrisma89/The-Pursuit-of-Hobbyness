@@ -13,11 +13,11 @@ function renderbuttons (){
   $(".savedgeneral").on("click", function(e){
     e.preventDefault();
 
-    let general = JSON.parse(localStorage.getItem("general")) || [];
+    let general = JSON.parse(localStorage.getItem("general"));
     let generalbutton = $(".generalcontainer");
     generalbutton.empty()
 
-    if(!general.length === 0){
+    if(!general.length){
       generalbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
     else{
@@ -37,7 +37,7 @@ function renderbuttons (){
   $(".savedsports").on("click", function(e){
     e.preventDefault();
 
-    let sports_and_outdoors = JSON.parse(localStorage.getItem("sports_and_outdoors"))
+    let sports_and_outdoors = JSON.parse(localStorage.getItem("sports_and_outdoors"));
     let sportsbutton = $(".sportscontainer")
     
     sportsbutton.empty()
@@ -47,8 +47,12 @@ function renderbuttons (){
     }
     else {
     for (let i=0; i < sports_and_outdoors.length; i++){
-      
-      sportsbutton.append($("<button>").text(sports_and_outdoors[i]).addClass("btn-pink btn"))
+      let savedHobbyName = sports_and_outdoors[i];
+      let newButton =$("<button>").text(savedHobbyName).addClass("btn btn-pink")
+      sportsbutton.append(newButton);
+      newButton.on("click", function(){
+        retrieveVideos(savedHobbyName)
+      })
     }}
   })
 
@@ -56,7 +60,7 @@ function renderbuttons (){
   $(".savededucation").on("click", function(e){
     e.preventDefault();
 
-    let education = JSON.parse(localStorage.getItem("education"))
+    let education = JSON.parse(localStorage.getItem("education"));
     let educationbutton = $(".educationcontainer")
     educationbutton.empty()
 
@@ -65,8 +69,12 @@ function renderbuttons (){
     }
     else {
     for (let i=0; i < education.length; i++){
-      
-      educationbutton.append($("<button>").text(education[i]).addClass("btn-pink btn"))
+      let savedHobbyName = education[i];
+      let newButton =$("<button>").text(savedHobbyName).addClass("btn btn-pink")
+      educationbutton.append(newButton);
+      newButton.on("click", function(){
+        retrieveVideos(savedHobbyName)
+      })
     }}
   })
 
@@ -83,8 +91,12 @@ function renderbuttons (){
     }
     else {
     for (let i=0; i < collection.length; i++){
-      
-      collectionbutton.append($("<button>").text(collection[i]).addClass("btn-pink btn"))
+      let savedHobbyName = collection[i];
+      let newButton =$("<button>").text(savedHobbyName).addClass("btn btn-pink")
+      collectionbutton.append(newButton);
+      newButton.on("click", function(){
+        retrieveVideos(savedHobbyName)
+      })
     }}
   })
 
@@ -101,8 +113,12 @@ function renderbuttons (){
     }
     else {
     for (let i=0; i < competition.length; i++){
-      
-      competitionbutton.append($("<button>").text(competition[i]).addClass("btn-pink btn"))
+      let savedHobbyName = competition[i];
+      let newButton =$("<button>").text(savedHobbyName).addClass("btn btn-pink")
+      competitionbutton.append(newButton);
+      newButton.on("click", function(){
+        retrieveVideos(savedHobbyName)
+      })
     }}
   })
 
@@ -120,8 +136,12 @@ function renderbuttons (){
     else {
 
     for (let i=0; i < observation.length; i++){
-      let savedHobbyName = observation[i]
-      observationbutton.append($("<button>").text(observation[i]).addClass("btn-pink btn"))
+      let savedHobbyName = observation[i];
+      let newButton =$("<button>").text(savedHobbyName).addClass("btn btn-pink")
+      observationbutton.append(newButton);
+      newButton.on("click", function(){
+        retrieveVideos(savedHobbyName)
+      })
 
     }}
   })
@@ -194,7 +214,7 @@ function retrieveVideos (savedHobbyName){
                 .text("Start Over")
                 .addClass("startoverbtn btn-yellow btn-lg btn")
             );
-            body.append(videoSection)
+          
             // $("#videos").css("display", "block");
             $(".savedvideosection").css("display", "block")
             
