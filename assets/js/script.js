@@ -5,6 +5,14 @@ $(function () {
   $(".my-hobbies").css("display", "none");
 });
 
+// Check if any local storage exists, and if so make my hobbies button visible
+
+$(function () {
+if (localStorage.length > 0) {
+  $(".my-hobbies").css("display", "block");
+}
+});
+
 // 'find new hobby' button opens categories section
 $(".newhobbybtn").on("click", function () {
   $("#welcome").css("display", "none");
