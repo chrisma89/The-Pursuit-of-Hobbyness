@@ -99,7 +99,6 @@ function fetchData(dataCategory) {
       $("#categories").css("display", "none");
       $("#hobby").css("display", "block");
       $("#videos").css("display", "none");
-      $(".my-hobbies").css("display", "block");
 
       let hobbySection = $("#hobby");
 
@@ -173,7 +172,10 @@ function fetchData(dataCategory) {
               // function call to store searched hobbies in local storage under each category
               storeHobbies(hobbyName, dataCategory);
               console.log(hobbyName, dataCategory);
-              
+
+              // Make my hobbies button visible only after video generator button is clicked
+              $(".my-hobbies").css("display", "block");
+
         // youtube api
         youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
