@@ -37,8 +37,20 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-family: var(--headerFont)
 }
 
-iframe {
+.videos iframe {
   border-radius: 25px;
+  width: 100%;
+}
+
+.videos h4 {
+  margin: 1.5rem auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-transform: capitalize;
+  text-align: center;
+  min-height: 58px;
 }
 
 .card h3 {
@@ -202,21 +214,40 @@ ul.dropdown-menu.show * + * {
   width: 100%;
 }
 
-@media (max-width : 767px) {
 
-   .navbar>.container-fluid {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+@media (min-width : 576px) {
+
+  .videos iframe {
+    height: 235px;
+  }
+
 }
 
-  .p-5 {
-    padding: 40px !important;
+@media (min-width : 768px) {
+
+  .videos iframe {
+    height: 160px;
+  }
+
 }
 
-  #hobby button {
-    min-width: 100%;
-    max-width: 100%;
+@media (min-width : 992px) {
+
+  .videos iframe {
+    height: 225px;
+  }
 }
 
+@media (min-width : 1200px) {
+
+  .videos iframe {
+    height: 180px;
+  }
+}
+
+@media (min-width : 1400px) {
+
+  .videos iframe {
+    height: 215px;
+  }
 }
