@@ -8,21 +8,25 @@ $(document).ready(function(){
   // function to renderbuttons for search history onto the page
 
 function renderbuttons (){
-
+  
   // saved hobbies under each category is made to render onto its own parent category
   $(".savedgeneral").on("click", function(e){
     e.preventDefault();
 
-    let general = JSON.parse(localStorage.getItem("general"))
-    let generalbutton = $(".generalcontainer")
+    let general = JSON.parse(localStorage.getItem("general")) || [];
+    let generalbutton = $(".generalcontainer");
     generalbutton.empty()
 
     if(!general){
       generalbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
     for (let i=0; i <general.length; i++){
-      
-      generalbutton.append($("<button>").text(general[i]).addClass("btn-pink btn"))
+      let hobbyName = general[i];
+      let newButton = $("<button>").text(hobbyName).addClass("btn-pink btn").on("click", function(){
+        fetchData(hobbyName); // Pass hobbyName if needed in fetchData
+      });
+      generalbutton.append(newButton);
+    
     }
   })
 
@@ -117,4 +121,6 @@ function renderbuttons (){
     }
   })
 }
+
+
 

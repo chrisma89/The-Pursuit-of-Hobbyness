@@ -2,6 +2,7 @@
 $(function () {
   $("#categories").css("display", "none");
   $("#videos").css("display", "none");
+  $(".my-hobbies").css("display", "none")
 });
 
 // 'find new hobby' button opens categories section
@@ -46,6 +47,7 @@ hobbyCategory.on("click", function (e) {
       $("#categories").css("display", "none");
       $("#hobby").css("display", "block");
       $("#videos").css("display", "none");
+      $(".my-hobbies").css("display", "block")
 
       let hobbySection = $("#hobby");
 
