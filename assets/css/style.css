@@ -37,6 +37,10 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-family: var(--headerFont)
 }
 
+.navbar-brand {
+  height: 48px;
+}
+
 .videos iframe {
   border-radius: 25px;
   width: 100%;
@@ -212,6 +216,31 @@ ul.dropdown-menu.show * + * {
 
 .dropdown-menu button {
   width: 100%;
+}
+
+@media (max-width : 575px) {
+
+  .navbar>.container-fluid {
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
+}
+
+ .p-5 {
+   padding: 35px !important;
+}
+
+ #hobby button {
+   min-width: 100%;
+   max-width: 100%;
+}
+
+.videos iframe {
+ height: 40vw;
+ min-height: 160px
+}
+
+
 }
 
 
