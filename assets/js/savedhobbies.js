@@ -146,7 +146,7 @@ function retrieveVideos (savedHobbyName){
 
             let videoItems = data.items;
 
-            let videoSection = $("<div>").addClass("savedvideosection");
+            let videoSection = $(".savedvideosection");
 
             let videoHeader = $("<h2>")
               .text(
@@ -194,8 +194,10 @@ function retrieveVideos (savedHobbyName){
                 .text("Start Over")
                 .addClass("startoverbtn btn-yellow btn-lg btn")
             );
-            $("#videos").css("display", "block");
+            body.append(videoSection)
+            // $("#videos").css("display", "block");
             $(".savedvideosection").css("display", "block")
+            
 
             $(".startoverbtn").on("click", function (e) {
               e.preventDefault();
