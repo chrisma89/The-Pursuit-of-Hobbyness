@@ -28,173 +28,6 @@ hobbyCategory.on("click", function (e) {
   let dataCategory = $(this).attr("data-category");
 
   fetchData(dataCategory);
-  // queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
-
-  // fetch(queryURL, {
-  //   headers: {
-  //     "X-Api-Key": APIkey,
-  //   },
-  // })
-  //   .then(function (response) {
-  //     return response.json();
-  //   })
-  //   .then(function (data) {
-  //     console.log(data);
-
-  //     //  data captured onto variables
-  //     let hobbyName = data.hobby;
-  //     let wikiLink = data.link;
-
-  //     // hobby info page display
-  //     $("#categories").css("display", "none");
-  //     $("#hobby").css("display", "block");
-  //     $("#videos").css("display", "none");
-  //     $(".my-hobbies").css("display", "block");
-
-  //     let hobbySection = $("#hobby");
-
-  //     // change taglines at every random hobby generation
-  //     let taglineArray = [
-  //       "Have you thought about ",
-  //       "How about ",
-  //       "Ever considered ",
-  //       "Would you like to try ",
-  //       "What about ",
-  //     ];
-
-  //     let i = Math.floor(Math.random() * 5);
-
-  //     let hobbySectionText = $("<h2>")
-  //       .text(taglineArray[i] + hobbyName + "?")
-  //       .addClass("display-5 fw-bold text-center mb-5");
-  //     hobbySection.append(hobbySectionText);
-
-  //     // 4 dynamic buttons appended onto page
-  //     hobbySection.append(
-  //       $("<button>")
-  //         .text("Take me to the videos")
-  //         .addClass("videosgeneratorbtn btn-pink btn-lg btn")
-  //     );
-  //     hobbySection.append(
-  //       $("<button>")
-  //         .text("What is " + hobbyName)
-  //         .addClass("wikipedialinkgenerator btn-yellow btn-lg btn")
-  //     );
-  //     hobbySection.append(
-  //       $("<button>")
-  //         .text("New " + dataCategory + " hobby")
-  //         .addClass("samecategoryhobbygenerator btn-yellow btn-lg btn")
-  //     );
-  //     hobbySection.append(
-  //       $("<button>")
-  //         .text("Start Over")
-  //         .addClass("startoverbtn btn-yellow btn-lg btn")
-  //     );
-
-  //     // event- listeners added to dynamic buttons
-  //     $(".startoverbtn").on("click", function (e) {
-  //       e.preventDefault();
-  //       window.location.href = "index.html";
-  //     });
-
-  //     // what is? button takes user to wikipedia page
-  //     $(".wikipedialinkgenerator").on("click", function (e) {
-  //       e.preventDefault();
-
-  //       $(this).attr("href", wikiLink).attr("target", "_blank");
-  //       window.open($(this).attr("href"), "_blank");
-  //     });
-
-  //     // new same category hobby button
-  //     $(".samecategoryhobbygenerator").on("click", function (e) {
-  //       e.preventDefault();
-  //       hobbySection.empty();
-  //       $("#hobby").css("display", "none");
-  //       fetchData(dataCategory);
-  //     });
-
-  //     // function call to store searched hobbies in local storage under each category
-  //     storeHobbies(hobbyName, dataCategory);
-  //     console.log(hobbyName, dataCategory);
-
-  //     // youtube videos appending ('take me to the videos' button)
-  //     $(".videosgeneratorbtn").on("click", function (e) {
-  //       e.preventDefault();
-  //       $("#hobby").css("display", "none");
-  //       $("#categories").css("display", "none");
-  //       // $("#videos").css("display", "block");
-
-  //       // youtube api
-  //       youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
-
-  //       youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6`;
-
-  //       fetch(youtubeQueryURL)
-  //         .then(function (response) {
-  //           return response.json();
-  //         })
-  //         .then(function (data) {
-  //           console.log(data);
-
-  //           let videoItems = data.items;
-
-  //           let videoSection = $("#videos");
-
-  //           let videoHeader = $("<h2>")
-  //             .text(
-  //               "Here are some videos to help you get started on " + hobbyName
-  //             )
-  //             .addClass("display-5 fw-bold text-center mb-5");
-  //           videoSection.append(videoHeader);
-  //           let videoMain = $("<div>").addClass("row");
-  //           videoSection.append(videoMain);
-
-  //           for (let i = 0; i < videoItems.length; i++) {
-  //             let videoDIv = $("<div>").addClass("col-md-6 col-xl-4");
-  //             let videoID = data.items[i].id.videoId;
-  //             console.log(videoID);
-  //             let videoTitle = data.items[i].snippet.title.trim();
-  //             let titleElement = $("<h3>").text(videoTitle);
-
-  //             titleElement.css({
-  //               height: "10px",
-  //               width: "10px",
-  //             });
-
-  //             let videoIframe = $("<iframe>");
-
-  //             videoIframe.attr("width", "350");
-  //             videoIframe.attr("height", "215");
-  //             videoIframe.attr(
-  //               "src",
-  //               "https://www.youtube.com/embed/" + videoID
-  //             );
-  //             videoIframe.attr("frameborder", "0");
-  //             videoIframe.attr(
-  //               "allow",
-  //               "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  //             );
-  //             videoIframe.attr("allowfullscreen", "");
-
-  //             videoDIv.append(videoTitle, videoIframe);
-  //             videoMain.append(videoDIv);
-  //             videoSection.append(videoMain);
-  //           }
-
-  //           videoSection.append(
-  //             $("<button>")
-  //               .text("Start Over")
-  //               .addClass("startoverbtn btn-yellow btn-lg btn")
-  //           );
-  //           $("#videos").css("display", "block");
-
-  //           $(".startoverbtn").on("click", function (e) {
-  //             e.preventDefault();
-  //             window.location.href = "index.html";
-  //           });
-  //         });
-  //     });
-  //   });
 });
 
 // function to store search hobbies/history into local storage
@@ -373,8 +206,8 @@ function fetchData(dataCategory) {
               let titleElement = $("<h4>").text(videoTitle);
 
               titleElement.css({
-                height: "10px",
-                width: "10px",
+                // height: "10px",
+                // width: "10px",
               });
 
               let videoIframe = $("<iframe>");
@@ -392,7 +225,7 @@ function fetchData(dataCategory) {
               );
               videoIframe.attr("allowfullscreen", "");
 
-              videoDIv.append(videoTitle, videoIframe);
+              videoDIv.append(titleElement, videoIframe);
               videoMain.append(videoDIv);
               videoSection.append(videoMain);
             }

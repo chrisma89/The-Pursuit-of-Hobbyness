@@ -17,16 +17,18 @@ function renderbuttons (){
     let generalbutton = $(".generalcontainer");
     generalbutton.empty()
 
-    if(!general){
+    if(!general.length === 0){
       generalbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
     else{
     for (let i=0; i <general.length; i++){
-      let hobbyName = general[i];
-      let newButton = $("<button>").text(hobbyName).addClass("btn-pink btn").on("click", function(){
-        fetchData(hobbyName); // Pass hobbyName if needed in fetchData
-      });
+      let savedHobbyName = general[i];
+      let newButton = $("<button>").text(savedHobbyName).addClass("btn-pink btn")
       generalbutton.append(newButton);
+      newButton.on("click", function(){
+        retrieveVideos(savedHobbyName); 
+      });
+      
     }
     }
   })
@@ -118,11 +120,86 @@ function renderbuttons (){
     else {
 
     for (let i=0; i < observation.length; i++){
-      
+      let savedHobbyName = observation[i]
       observationbutton.append($("<button>").text(observation[i]).addClass("btn-pink btn"))
+
     }}
   })
 }
 
+// ---------------------------------------------------------
+// function to recreate youtube videos from saved buttons
 
+function retrieveVideos (savedHobbyName){
 
+      $(".hobby-section").css("display" ,"none")
+       youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
+
+        youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${savedHobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6`;
+
+        fetch(youtubeQueryURL)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data);
+
+            let videoItems = data.items;
+
+            let videoSection = $("<div>").addClass("savedvideosection");
+
+            let videoHeader = $("<h2>")
+              .text(
+                "Here are some videos to help you get started on " + savedHobbyName
+              )
+              .addClass("display-5 fw-bold text-center mb-5");
+            videoSection.append(videoHeader);
+            let videoMain = $("<div>").addClass("row");
+            videoSection.append(videoMain);
+
+            for (let i = 0; i < videoItems.length; i++) {
+              let videoDIv = $("<div>").addClass("col-md-6 col-xl-4");
+              let videoID = data.items[i].id.videoId;
+              console.log(videoID);
+              let videoTitle = data.items[i].snippet.title.trim();
+              let titleElement = $("<h4>").text(videoTitle);
+
+              titleElement.css({
+                // height: "10px",
+                // width: "10px",
+              });
+
+              let videoIframe = $("<iframe>");
+
+              videoIframe.attr("width", "350");
+              videoIframe.attr("height", "215");
+              videoIframe.attr(
+                "src",
+                "https://www.youtube.com/embed/" + videoID
+              );
+              videoIframe.attr("frameborder", "0");
+              videoIframe.attr(
+                "allow",
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              );
+              videoIframe.attr("allowfullscreen", "");
+
+              videoDIv.append(titleElement, videoIframe);
+              videoMain.append(videoDIv);
+              videoSection.append(videoMain);
+            }
+
+            videoSection.append(
+              $("<button>")
+                .text("Start Over")
+                .addClass("startoverbtn btn-yellow btn-lg btn")
+            );
+            $("#videos").css("display", "block");
+            $(".savedvideosection").css("display", "block")
+
+            $(".startoverbtn").on("click", function (e) {
+              e.preventDefault();
+              window.location.href = "index.html";
+            });
+})
+}
