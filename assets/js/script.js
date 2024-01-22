@@ -127,7 +127,7 @@ function fetchData(dataCategory) {
       );
       hobbySection.append(
         $("<button>")
-          .text("What is " + hobbyName)
+          .text("What is " + hobbyName + '?')
           .addClass("wikipedialinkgenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
