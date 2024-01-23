@@ -79,6 +79,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   background-color: var(--secondaryBg);
   -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);
           box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);
+          text-align: center;
 } 
 
 .hero-banner {
@@ -166,6 +167,10 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 #hobby h3,
 #videos h3 {
   text-align: center;
+}
+
+#videos button.startoverbtn {
+  margin: 25px auto 0;
 }
 
 #hobby button {

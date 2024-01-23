@@ -175,7 +175,7 @@ function fetchData(dataCategory) {
               e.preventDefault();
               $("#hobby").css("display", "none");
               $("#categories").css("display", "none");
-              $("#videos").css("display", "block");
+             
               
               // function call to store searched hobbies in local storage under each category
               storeHobbies(hobbyName, dataCategory);
@@ -199,6 +199,8 @@ function fetchData(dataCategory) {
             let videoItems = data.items;
 
             let videoSection = $("#videos");
+
+            $("#videos").css("display", "block");
 
             let videoHeader = $("<h2>")
               .text(
