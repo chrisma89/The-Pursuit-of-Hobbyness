@@ -17,7 +17,7 @@ function renderbuttons (){
     let generalbutton = $(".generalcontainer");
     generalbutton.empty()
 
-    if(!general.length){
+    if(!general){
       generalbutton.append($("<p>").text("No hobbies to view yet").addClass("btn-yellow btn"))
     }
     else{
