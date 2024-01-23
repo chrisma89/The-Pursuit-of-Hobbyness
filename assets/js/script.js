@@ -212,7 +212,7 @@ function fetchData(dataCategory) {
             videoSection.append(videoMain);
 
             for (let i = 0; i < videoItems.length; i++) {
-              let videoDIv = $("<div>").addClass("col-md-6 col-xl-4 videos");
+              let videoDIv = $("<div>").addClass("col-md-6 col-xl-4 video-wrapper");
               let videoID = data.items[i].id.videoId;
               console.log(videoID);
               let videoTitle = data.items[i].snippet.title.trim().toLowerCase();
