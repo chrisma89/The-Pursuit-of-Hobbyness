@@ -176,7 +176,8 @@ h6,
   text-align: center;
 }
 
-#videos button.startOverBtn {
+#videos button.startOverBtn,
+#savedVideos button.startOverBtn {
   margin: 25px auto 0;
 }
 
