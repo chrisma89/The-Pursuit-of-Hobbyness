@@ -14,7 +14,7 @@ if (localStorage.length > 0) {
 });
 
 // 'find new hobby' button opens categories section
-$(".newhobbybtn").on("click", function () {
+$("#newHobbyBtn").on("click", function () {
   $("#welcome").css("display", "none");
   $("#categories").css("display", "block");
 });
@@ -81,9 +81,6 @@ function storeHobbies(hobbyName, dataCategory) {
 // youtube api
 APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
-// $(".something").attr( { title:"Test", alt:"Test2" } );
-
-// ---------------------------------------------------------
 
 function fetchData(dataCategory) {
   queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
@@ -130,39 +127,39 @@ function fetchData(dataCategory) {
       hobbySection.append(
         $("<button>")
           .text("Take me to the videos")
-          .addClass("videosgeneratorbtn btn-pink btn-lg btn")
+          .addClass("videosGenerator btn-pink btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
           .text("What is " + hobbyName + '?')
-          .addClass("wikipedialinkgenerator btn-yellow btn-lg btn")
+          .addClass("wikipediaGenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
         .text("New " + dataCategory.replace(/_/g, ' ') + " hobby")
-          .addClass("samecategoryhobbygenerator btn-yellow btn-lg btn")
+          .addClass("sameHobbyGenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
           .text("Start Over")
-          .addClass("startoverbtn btn-yellow btn-lg btn")
+          .addClass("startOverBtn btn-yellow btn-lg btn")
       );
 
       // event- listeners added to dynamic buttons
-      $(".startoverbtn").on("click", function (e) {
+      $(".startOverBtn").on("click", function (e) {
         e.preventDefault();
         window.location.href = "index.html";
       });
 
       // what is? button takes user to wikipedia page
-      $(".wikipedialinkgenerator").on("click", function (e) {
+      $(".wikipediaGenerator").on("click", function (e) {
         e.preventDefault();
 
         $(this).attr("href", wikiLink).attr("target", "_blank");
         window.open($(this).attr("href"), "_blank");
       });
 
-      $(".samecategoryhobbygenerator").on("click", function (e) {
+      $(".sameHobbyGenerator").on("click", function (e) {
               e.preventDefault();
               hobbySection.empty();
               $("#hobby").css("display", "none");
@@ -171,7 +168,7 @@ function fetchData(dataCategory) {
 
             
             // youtube videos appending ('take me to the videos' button)
-            $(".videosgeneratorbtn").on("click", function (e) {
+            $(".videosGenerator").on("click", function (e) {
               e.preventDefault();
               $("#hobby").css("display", "none");
               $("#categories").css("display", "none");
@@ -218,11 +215,6 @@ function fetchData(dataCategory) {
               let videoTitle = data.items[i].snippet.title.trim().toLowerCase();
               let titleElement = $("<h4>").html(videoTitle);
 
-              titleElement.css({
-                // height: "10px",
-                // width: "10px",
-              });
-
               let videoIframe = $("<iframe>");
 
               videoIframe.attr("width", "350");
@@ -246,11 +238,11 @@ function fetchData(dataCategory) {
             videoSection.append(
               $("<button>")
                 .text("Start Over")
-                .addClass("startoverbtn btn-yellow btn-lg btn")
+                .addClass("startOverBtn btn-yellow btn-lg btn")
             );
             $("#videos").css("display", "block");
 
-            $(".startoverbtn").on("click", function (e) {
+            $(".startOverBtn").on("click", function (e) {
               e.preventDefault();
               window.location.href = "index.html";
             });
