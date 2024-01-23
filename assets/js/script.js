@@ -54,25 +54,25 @@ function storeHobbies(hobbyName, dataCategory) {
   competition = JSON.parse(localStorage.getItem("competition")) || [];
   observation = JSON.parse(localStorage.getItem("observation")) || [];
 
-  if (dataCategory === "general") {
+  if (dataCategory === "general" && !general.includes(hobbyName)){
     general.push(hobbyName);
     localStorage.setItem("general", JSON.stringify(general));
-  } else if (dataCategory === "sports_and_outdoors") {
+  } else if (dataCategory === "sports_and_outdoors" && !sports_and_outdoors.includes(hobbyName)) {
     sports_and_outdoors.push(hobbyName);
     localStorage.setItem(
       "sports_and_outdoors",
       JSON.stringify(sports_and_outdoors)
     );
-  } else if (dataCategory === "education") {
+  } else if (dataCategory === "education" && !education.includes(hobbyName)) {
     education.push(hobbyName);
     localStorage.setItem("education", JSON.stringify(education));
-  } else if (dataCategory === "collection") {
+  } else if (dataCategory === "collection" && !collection.includes(hobbyName)) {
     collection.push(hobbyName);
     localStorage.setItem("collection", JSON.stringify(collection));
-  } else if (dataCategory === "competition") {
+  } else if (dataCategory === "competition" && !competition.includes(hobbyName)) {
     competition.push(hobbyName);
     localStorage.setItem("competition", JSON.stringify(competition));
-  } else if (dataCategory === "observation") {
+  } else if (dataCategory === "observation" && !observation.includes(hobbyName)) {
     observation.push(hobbyName);
     localStorage.setItem("observation", JSON.stringify(observation));
   }
@@ -184,7 +184,7 @@ function fetchData(dataCategory) {
         // youtube api
         youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
-        youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6`;
+        youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6&videoLicense=creativeCommon`;
 
         fetch(youtubeQueryURL)
           .then(function (response) {
