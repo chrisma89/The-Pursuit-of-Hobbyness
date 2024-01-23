@@ -1,7 +1,7 @@
 # The Pursuit of Hobbyness: An Interactive Web Application
 
 ## Collaborators
-- Goergie Lillington : https://github.com/georgielill
+- Georgie Lillington : https://github.com/georgielill
 - Richard Llewellyn : https://github.com/RichLlew182
 - Chrisma Stephen : https://github.com/chrisma89
 
