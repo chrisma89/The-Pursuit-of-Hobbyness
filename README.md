@@ -89,7 +89,14 @@ The code can be viewed at github: https://github.com/chrisma89/PursuitOfHobbies
 
 ### Usage
 
-The screenshot of the webpage is below : ![webpagescreenshot]()
+The screenshots of the webpage are below:
+
+![Homepage](assets/images/screenshots/Homepage.png)
+![Category Page](<assets/images/screenshots/Category Page.png>)
+![Hobby Selection Page](<assets/images/screenshots/Hobby Selection Page.png>)
+![Video Page](<assets/images/screenshots/Video Page.png>)
+![My Saved Hobbies](<assets/images/screenshots/My Saved Hobbies Page.png>)
+![Homepage with My Hobbies Button](<assets/images/screenshots/Homepage with My Hobbies.png>)
 
 ### Credits
 
@@ -98,12 +105,3 @@ The screenshot of the webpage is below : ![webpagescreenshot]()
 ### Licence
 
 The standard MIT Licence is in use for this repository.
-
-### Screenshots of Application
-
-![Homepage](assets/images/screenshots/Homepage.png)
-![Category Page](<assets/images/screenshots/Category Page.png>)
-![Hobby Selection Page](<assets/images/screenshots/Hobby Selection Page.png>)
-![Video Page](<assets/images/screenshots/Video Page.png>)
-![My Saved Hobbies](<assets/images/screenshots/My Saved Hobbies Page.png>)
-![Homepage with My Hobbies Button](<assets/images/screenshots/Homepage with My Hobbies.png>)
