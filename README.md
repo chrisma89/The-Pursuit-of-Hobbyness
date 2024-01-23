@@ -1,26 +1,32 @@
-# PursuitOfHobbyness
+# ThePursuitOfHobbyness
 ## About the Project
 
 "You never lose a dream, it just incubates as a hobby." – Larry Page
 
-Pursuit of Hobbyness is a web application that helps one pick a new hobby and make it a part of their lives.
+The Pursuit of Hobbyness is a web application that helps the user find a new hobby and make it a part of their lives.
 
-The user is presented with six categories of hobbies to choose from, such as 
+On opening the app, the user is presented with 
+"Are you looking for a new hobby but not sure what you like? Use our online app to get a random hobby suggestion and video tips to get you started!" and a "Find New Hobby" button.
+
+If the user clicks on the button, the six categories of hobbies to choose from, such as 
 General, 
 Sports and Outdoors, 
 Collection, 
 Observation, 
 Education and 
-Competition.
+Competition
 
-If and when the user clicks on category, they will be presented with a Hobby title and three buttons that are clickable. The buttons are - More Information, Search for a New Hobby and View Saved Hobbies.
+are displayed.
 
-The more information button will give the user a Wikipedia link that opens in a new tab on the browser for the user to read about the new hobby. If the user is happy to adopt their new hobby, they can choose to watch a collection of 6 videos that have been embedded on to the webpage.
+If and when the user clicks on category, they will be presented with a Hobby title and four buttons that are clickable. The buttons can take the user to the videos, provide them with more information, help them pick a new hobby in the same category or start over.
 
-The "search for a new hobby" button will take the user back to the start of the application, where the user can generate a new random hobby. 
+The "What is" button will give the open the Wikipedia link that the user can use to read about the new hobby and assess if they would like to try it out. If the user is happy to adopt their new hobby, they can choose to watch a collection of 6 videos that have been embedded on to the webpage by clicking the "Take me to the videos" button. This button will also save the chosen hobby in the local storage.
 
-The "View Saved Hobbies" button will give the user a list of hobbies they have searched for and should they be keen on exploring one of those hobbies again, they can choose to get more information.
+The "New SameCategory Hobby" button will generate a new hobby in the same ategory that was initially chosen by the user. The "Start Over" button will reset the application to its beginning.
 
+If the user chooses to watch the videos, the saved hobby can be later accessed through clicking the "My hobbies" button that has been made visible if and when there is a saved hobby. When it is clicked, the "My Saved Hobbies" page opens up to display the six categories again with a dropdown list attached to each one. The drop down list will dispaly the saved hobby if its available and when it is clicked, the user is taken back to the videos. If there are no saved hoobies under a category, a "No hobbies to view yet" message is displayed.
+
+CLicking the navbar's "The Pursuit of Hobbyness" at any tie will atke the user back to the homepage.
 
 
 ## Built with
@@ -36,7 +42,11 @@ This repository has been built using
 -Server APTs
 -Bootstrap
 -Figma
+-Excalidraw
 
+The API's in use are 
+-https://api-ninjas.com/api/hobbies
+-https://developers.google.com/youtube/v3
 
 ## Resources:
 ### Resources for collaborative working
@@ -46,9 +56,10 @@ This repository has been built using
 
 ### Resources on building the webpage
 -https://developers.google.com/youtube/v3/docs
--https://api-ninjas.com/api/hobbies
 -https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 -https://hansen-breanna.github.io/local-storage.html
+-https://developers.google.com/youtube/player_parameters
+-https://en.wikipedia.org/wiki/Wikipedia:Copyrights
 
 
 
@@ -60,7 +71,6 @@ This webpage can be rendered by visiting the url :
 The code can be viewed at github: https://github.com/chrisma89/PursuitOfHobbies
 
 ### Usage
-
 
 The screenshot of the webpage is below : ![webpagescreenshot]()
 
