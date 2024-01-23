@@ -14,7 +14,7 @@ if (localStorage.length > 0) {
 });
 
 // 'find new hobby' button opens categories section
-$(".newhobbybtn").on("click", function () {
+$("#newHobbyBtn").on("click", function () {
   $("#welcome").css("display", "none");
   $("#categories").css("display", "block");
 });
@@ -54,25 +54,25 @@ function storeHobbies(hobbyName, dataCategory) {
   competition = JSON.parse(localStorage.getItem("competition")) || [];
   observation = JSON.parse(localStorage.getItem("observation")) || [];
 
-  if (dataCategory === "general") {
+  if (dataCategory === "general" && !general.includes(hobbyName)){
     general.push(hobbyName);
     localStorage.setItem("general", JSON.stringify(general));
-  } else if (dataCategory === "sports_and_outdoors") {
+  } else if (dataCategory === "sports_and_outdoors" && !sports_and_outdoors.includes(hobbyName)) {
     sports_and_outdoors.push(hobbyName);
     localStorage.setItem(
       "sports_and_outdoors",
       JSON.stringify(sports_and_outdoors)
     );
-  } else if (dataCategory === "education") {
+  } else if (dataCategory === "education" && !education.includes(hobbyName)) {
     education.push(hobbyName);
     localStorage.setItem("education", JSON.stringify(education));
-  } else if (dataCategory === "collection") {
+  } else if (dataCategory === "collection" && !collection.includes(hobbyName)) {
     collection.push(hobbyName);
     localStorage.setItem("collection", JSON.stringify(collection));
-  } else if (dataCategory === "competition") {
+  } else if (dataCategory === "competition" && !competition.includes(hobbyName)) {
     competition.push(hobbyName);
     localStorage.setItem("competition", JSON.stringify(competition));
-  } else if (dataCategory === "observation") {
+  } else if (dataCategory === "observation" && !observation.includes(hobbyName)) {
     observation.push(hobbyName);
     localStorage.setItem("observation", JSON.stringify(observation));
   }
@@ -81,9 +81,6 @@ function storeHobbies(hobbyName, dataCategory) {
 // youtube api
 APikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
-// $(".something").attr( { title:"Test", alt:"Test2" } );
-
-// ---------------------------------------------------------
 
 function fetchData(dataCategory) {
   queryURL = `https://api.api-ninjas.com/v1/hobbies?apikey=${APIkey}&limit=5&category=${dataCategory}`;
@@ -130,39 +127,39 @@ function fetchData(dataCategory) {
       hobbySection.append(
         $("<button>")
           .text("Take me to the videos")
-          .addClass("videosgeneratorbtn btn-pink btn-lg btn")
+          .addClass("videosGenerator btn-pink btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
           .text("What is " + hobbyName + '?')
-          .addClass("wikipedialinkgenerator btn-yellow btn-lg btn")
+          .addClass("wikipediaGenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
         .text("New " + dataCategory.replace(/_/g, ' ') + " hobby")
-          .addClass("samecategoryhobbygenerator btn-yellow btn-lg btn")
+          .addClass("sameHobbyGenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
           .text("Start Over")
-          .addClass("startoverbtn btn-yellow btn-lg btn")
+          .addClass("startOverBtn btn-yellow btn-lg btn")
       );
 
       // event- listeners added to dynamic buttons
-      $(".startoverbtn").on("click", function (e) {
+      $(".startOverBtn").on("click", function (e) {
         e.preventDefault();
         window.location.href = "index.html";
       });
 
       // what is? button takes user to wikipedia page
-      $(".wikipedialinkgenerator").on("click", function (e) {
+      $(".wikipediaGenerator").on("click", function (e) {
         e.preventDefault();
 
         $(this).attr("href", wikiLink).attr("target", "_blank");
         window.open($(this).attr("href"), "_blank");
       });
 
-      $(".samecategoryhobbygenerator").on("click", function (e) {
+      $(".sameHobbyGenerator").on("click", function (e) {
               e.preventDefault();
               hobbySection.empty();
               $("#hobby").css("display", "none");
@@ -171,7 +168,7 @@ function fetchData(dataCategory) {
 
             
             // youtube videos appending ('take me to the videos' button)
-            $(".videosgeneratorbtn").on("click", function (e) {
+            $(".videosGenerator").on("click", function (e) {
               e.preventDefault();
               $("#hobby").css("display", "none");
               $("#categories").css("display", "none");
@@ -187,7 +184,7 @@ function fetchData(dataCategory) {
         // youtube api
         youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
-        youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6`;
+        youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${hobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6&videoLicense=creativeCommon`;
 
         fetch(youtubeQueryURL)
           .then(function (response) {
@@ -218,11 +215,6 @@ function fetchData(dataCategory) {
               let videoTitle = data.items[i].snippet.title.trim().toLowerCase();
               let titleElement = $("<h4>").html(videoTitle);
 
-              titleElement.css({
-                // height: "10px",
-                // width: "10px",
-              });
-
               let videoIframe = $("<iframe>");
 
               videoIframe.attr("width", "350");
@@ -246,11 +238,11 @@ function fetchData(dataCategory) {
             videoSection.append(
               $("<button>")
                 .text("Start Over")
-                .addClass("startoverbtn btn-yellow btn-lg btn")
+                .addClass("startOverBtn btn-yellow btn-lg btn")
             );
             $("#videos").css("display", "block");
 
-            $(".startoverbtn").on("click", function (e) {
+            $(".startOverBtn").on("click", function (e) {
               e.preventDefault();
               window.location.href = "index.html";
             });
