@@ -139,7 +139,7 @@ function renderbuttons (){
       let savedHobbyName = observation[i];
       let newButton =$("<button>").text(savedHobbyName).addClass("btn btn-pink")
       observationbutton.append(newButton);
-      newButton.on("click", function(){
+      newButton.on("click", function () {
         retrieveVideos(savedHobbyName)
       })
 
@@ -167,6 +167,8 @@ function retrieveVideos (savedHobbyName){
             let videoItems = data.items;
 
             let videoSection = $(".savedvideosection");
+             // $("#videos").css("display", "block");
+         $(".savedvideosection").css("display", "block")
 
             let videoHeader = $("<h2>")
               .text(
@@ -178,11 +180,11 @@ function retrieveVideos (savedHobbyName){
             videoSection.append(videoMain);
 
             for (let i = 0; i < videoItems.length; i++) {
-              let videoDIv = $("<div>").addClass("col-md-6 col-xl-4");
+              let videoDIv = $("<div>").addClass("col-md-6 col-xl-4 video-wrapper");
               let videoID = data.items[i].id.videoId;
               console.log(videoID);
-              let videoTitle = data.items[i].snippet.title.trim();
-              let titleElement = $("<h4>").text(videoTitle);
+              let videoTitle = data.items[i].snippet.title.trim().toLowerCase();
+              let titleElement = $("<h4>").html(videoTitle);
 
               titleElement.css({
                 // height: "10px",
@@ -213,11 +215,7 @@ function retrieveVideos (savedHobbyName){
               $("<button>")
                 .text("Start Over")
                 .addClass("startoverbtn btn-yellow btn-lg btn")
-            );
-          
-            // $("#videos").css("display", "block");
-            $(".savedvideosection").css("display", "block")
-            
+            );  
 
             $(".startoverbtn").on("click", function (e) {
               e.preventDefault();

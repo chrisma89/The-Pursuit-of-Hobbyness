@@ -5,6 +5,14 @@ $(function () {
   $(".my-hobbies").css("display", "none");
 });
 
+// Check if any local storage exists, and if so make my hobbies button visible
+
+$(function () {
+if (localStorage.length > 0) {
+  $(".my-hobbies").css("display", "block");
+}
+});
+
 // 'find new hobby' button opens categories section
 $(".newhobbybtn").on("click", function () {
   $("#welcome").css("display", "none");
@@ -99,7 +107,6 @@ function fetchData(dataCategory) {
       $("#categories").css("display", "none");
       $("#hobby").css("display", "block");
       $("#videos").css("display", "none");
-      $(".my-hobbies").css("display", "block");
 
       let hobbySection = $("#hobby");
 
@@ -127,12 +134,12 @@ function fetchData(dataCategory) {
       );
       hobbySection.append(
         $("<button>")
-          .text("What is " + hobbyName)
+          .text("What is " + hobbyName + '?')
           .addClass("wikipedialinkgenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
         $("<button>")
-          .text("New " + dataCategory + " hobby")
+        .text("New " + dataCategory.replace(/_/g, ' ') + " hobby")
           .addClass("samecategoryhobbygenerator btn-yellow btn-lg btn")
       );
       hobbySection.append(
@@ -162,16 +169,20 @@ function fetchData(dataCategory) {
               fetchData(dataCategory);
             });
 
-      // function call to store searched hobbies in local storage under each category
-      storeHobbies(hobbyName, dataCategory);
-      console.log(hobbyName, dataCategory);
+            
+            // youtube videos appending ('take me to the videos' button)
+            $(".videosgeneratorbtn").on("click", function (e) {
+              e.preventDefault();
+              $("#hobby").css("display", "none");
+              $("#categories").css("display", "none");
+             
+              
+              // function call to store searched hobbies in local storage under each category
+              storeHobbies(hobbyName, dataCategory);
+              console.log(hobbyName, dataCategory);
 
-      // youtube videos appending ('take me to the videos' button)
-      $(".videosgeneratorbtn").on("click", function (e) {
-        e.preventDefault();
-        $("#hobby").css("display", "none");
-        $("#categories").css("display", "none");
-        // $("#videos").css("display", "block");
+              // Make my hobbies button visible only after video generator button is clicked
+              $(".my-hobbies").css("display", "block");
 
         // youtube api
         youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
@@ -189,6 +200,8 @@ function fetchData(dataCategory) {
 
             let videoSection = $("#videos");
 
+            $("#videos").css("display", "block");
+
             let videoHeader = $("<h2>")
               .text(
                 "Here are some videos to help you get started on " + hobbyName
@@ -199,11 +212,11 @@ function fetchData(dataCategory) {
             videoSection.append(videoMain);
 
             for (let i = 0; i < videoItems.length; i++) {
-              let videoDIv = $("<div>").addClass("col-md-6 col-xl-4");
+              let videoDIv = $("<div>").addClass("col-md-6 col-xl-4 video-wrapper");
               let videoID = data.items[i].id.videoId;
               console.log(videoID);
-              let videoTitle = data.items[i].snippet.title.trim();
-              let titleElement = $("<h4>").text(videoTitle);
+              let videoTitle = data.items[i].snippet.title.trim().toLowerCase();
+              let titleElement = $("<h4>").html(videoTitle);
 
               titleElement.css({
                 // height: "10px",

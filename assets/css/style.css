@@ -37,8 +37,25 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-family: var(--headerFont)
 }
 
-iframe {
+.navbar-brand {
+  height: 48px;
+}
+
+.video-wrapper iframe {
   border-radius: 25px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.video-wrapper h4 {
+  margin: 0 auto 1.5rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-transform: capitalize;
+  text-align: center;
+  min-height: 58px;
 }
 
 .card h3 {
@@ -63,6 +80,7 @@ iframe {
   background-color: var(--secondaryBg);
   -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);
           box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);
+          text-align: center;
 } 
 
 .hero-banner {
@@ -152,6 +170,10 @@ iframe {
   text-align: center;
 }
 
+button.startoverbtn {
+  margin: 25px auto 0;
+}
+
 #hobby button {
   display: block;
   text-align: center;
@@ -189,7 +211,7 @@ iframe {
 .dropdown-menu.show {
   display: block;
   max-height: 250px;
-  overflow: scroll;
+  overflow: auto;
   padding: 10px;
   width: 100%;
 }
@@ -202,21 +224,65 @@ ul.dropdown-menu.show * + * {
   width: 100%;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 575px) {
 
-   .navbar>.container-fluid {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  .navbar>.container-fluid {
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
 }
 
-  .p-5 {
-    padding: 40px !important;
+ .p-5 {
+   padding: 35px !important;
 }
 
-  #hobby button {
-    min-width: 100%;
-    max-width: 100%;
+ #hobby button {
+   min-width: 100%;
+   max-width: 100%;
 }
 
+.video-wrapper iframe {
+ height: 40vw;
+ min-height: 160px
+}
+
+
+}
+
+
+@media (min-width : 576px) {
+
+  .video-wrapper iframe {
+    height: 235px;
+  }
+
+}
+
+@media (min-width : 768px) {
+
+  .video-wrapper iframe {
+    height: 160px;
+  }
+
+}
+
+@media (min-width : 992px) {
+
+  .video-wrapper iframe {
+    height: 225px;
+  }
+}
+
+@media (min-width : 1200px) {
+
+  .video-wrapper iframe {
+    height: 180px;
+  }
+}
+
+@media (min-width : 1400px) {
+
+  .video-wrapper iframe {
+    height: 215px;
+  }
 }
