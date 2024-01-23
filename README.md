@@ -47,23 +47,23 @@ The application is designed with an intuitive navigation system. The navbar, pro
 
 In essence, "The Pursuit of Hobbyness" is more than just an application; it's a digital companion in the journey of self-discovery and personal growth through the pursuit of hobbies.
 
-
 ## Built with
 
-This repository has been built using 
+This repository has been built using
 
 - HTML5
 - CSS3
 - Javascript
-- Git 
-- Github 
-- Browser APIs 
+- Git
+- Github
+- Browser APIs
 - Server APIs
 - Bootstrap
 - Figma
 - Excalidraw
 
-The API's in use are 
+The API's in use are
+
 - https://api-ninjas.com/api/hobbies
 - https://developers.google.com/youtube/v3
 
@@ -74,7 +74,6 @@ The API's in use are
 - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
 - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github
 
-
 ### Resources on building the webpage
 
 - https://developers.google.com/youtube/v3/docs
@@ -83,10 +82,9 @@ The API's in use are
 - https://developers.google.com/youtube/player_parameters
 - https://en.wikipedia.org/wiki/Wikipedia:Copyrights
 
-
 ### Installation
 
-This webpage can be rendered by visiting the url : 
+This webpage can be rendered by visiting the url :
 The code can be viewed at github: https://github.com/chrisma89/PursuitOfHobbies
 
 ### Usage
@@ -97,10 +95,15 @@ The screenshot of the webpage is below : ![webpagescreenshot]()
 
 - Thank you to the TAs, Mr Zakariya Hussain and Mr Martin William for their guidance throughout the project.
 
-
-
-
-
 ### Licence
 
 The standard MIT Licence is in use for this repository.
+
+### Screenshots of Application
+
+![Homepage](assets/images/screenshots/Homepage.png)
+![Category Page](<assets/images/screenshots/Category Page.png>)
+![Hobby Selection Page](<assets/images/screenshots/Hobby Selection Page.png>)
+![Video Page](<assets/images/screenshots/Video Page.png>)
+![My Saved Hobbies](<assets/images/screenshots/My Saved Hobbies Page.png>)
+![Homepage with My Hobbies Button](<assets/images/screenshots/Homepage with My Hobbies.png>)
