@@ -230,6 +230,15 @@ ul.dropdown-menu.show *+* {
   width: 100%;
 }
 
+.dropdown-menu .btn-yellow {
+  margin-bottom: 0;
+  cursor: default;
+}
+
+.dropdown-menu .btn-yellow:hover {
+  background-color: var(--secondaryBtnBg);
+}
+
 @media (max-width : 575px) {
 
   .navbar>.container-fluid {
