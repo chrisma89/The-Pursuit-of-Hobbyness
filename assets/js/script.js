@@ -126,7 +126,7 @@ function fetchData(dataCategory) {
       // 4 dynamic buttons appended onto page
       hobbySection.append(
         $("<button>")
-          .text("Take me to the videos")
+          .text("Pursue Hobby")
           .addClass("videosGenerator btn-pink btn-lg btn")
       );
       hobbySection.append(
@@ -167,7 +167,7 @@ function fetchData(dataCategory) {
             });
 
             
-            // youtube videos appending ('take me to the videos' button)
+            // youtube videos appending ('pursue hobby' button)
             $(".videosGenerator").on("click", function (e) {
               e.preventDefault();
               $("#hobby").css("display", "none");
