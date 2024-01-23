@@ -173,7 +173,7 @@ function retrieveVideos(savedHobbyName) {
   $(".hobby-section").css("display", "none");
   youtubeAPikey = "AIzaSyBndN5rIlX_lHDt6WsGPFvYWotnMrOgvgU";
 
-  youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${savedHobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6&videoLicense=creativeCommon`;
+  youtubeQueryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${youtubeAPikey}&q=${savedHobbyName}+hobby&videoEmbeddable=true&type=video&maxResults=6&videoLicense=creativeCommon&relevanceLanguage=en`;
 
   fetch(youtubeQueryURL)
     .then(function (response) {
