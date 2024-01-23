@@ -96,7 +96,6 @@ The screenshots of the webpage are below:
 ![Hobby Selection Page](<assets/images/screenshots/Hobby Selection Page.png>)
 ![Video Page](<assets/images/screenshots/Video Page.png>)
 ![My Saved Hobbies](<assets/images/screenshots/My Saved Hobbies Page.png>)
-![Homepage with My Hobbies Button](<assets/images/screenshots/Homepage with My Hobbies.png>)
 
 ### Credits
 
