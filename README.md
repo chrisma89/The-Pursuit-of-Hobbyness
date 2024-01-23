@@ -1,5 +1,10 @@
 # The Pursuit of Hobbyness: An Interactive Web Application
 
+## Collaborators
+- Goergie Lillington : https://github.com/georgielill
+- Richard Llewellyn : https://github.com/RichLlew182
+- Chrisma Stephen : https://github.com/chrisma89
+
 ## Overview
 
 "The Pursuit of Hobbyness" is an innovative web application designed to inspire users in discovering and embracing new hobbies. Grounded in the philosophy of Larry Page's words, "You never lose a dream, it just incubates as a hobby," this platform serves as a digital incubator for dreams and aspirations through hobby exploration.
