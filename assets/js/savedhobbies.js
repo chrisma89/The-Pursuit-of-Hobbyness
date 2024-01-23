@@ -183,8 +183,8 @@ function retrieveVideos (savedHobbyName){
               let videoDIv = $("<div>").addClass("col-md-6 col-xl-4 videos");
               let videoID = data.items[i].id.videoId;
               console.log(videoID);
-              let videoTitle = data.items[i].snippet.title.trim();
-              let titleElement = $("<h4>").text(videoTitle);
+              let videoTitle = data.items[i].snippet.title.trim().toLowerCase();
+              let titleElement = $("<h4>").html(videoTitle);
 
               titleElement.css({
                 // height: "10px",
