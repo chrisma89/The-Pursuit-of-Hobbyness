@@ -242,6 +242,15 @@ ul.dropdown-menu.show *+* {
 
 @media (max-width : 575px) {
 
+  main {
+    padding: 0px 16px 50px;
+    min-height: calc(100vh - 72px)
+  }
+
+  .navbar-expand-lg {
+    position: relative;
+  }
+
   .navbar>.container-fluid {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -252,9 +261,21 @@ ul.dropdown-menu.show *+* {
     padding: 35px !important;
   }
 
+  .mb-5 {
+    margin-bottom: 2rem !important;
+  }
+
   #hobby button {
     min-width: 100%;
     max-width: 100%;
+  }
+
+  .hobby-category {
+    height: 225px;
+  }
+
+  .card h3 {
+    font-size: 1.8rem;
   }
 
   .video-wrapper iframe {
@@ -262,9 +283,7 @@ ul.dropdown-menu.show *+* {
     min-height: 160px
   }
 
-
 }
-
 
 @media (min-width : 576px) {
 
