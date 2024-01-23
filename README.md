@@ -54,6 +54,7 @@ This repository has been built using
 - HTML5
 - CSS3
 - Javascript
+- jQuery
 - Git
 - Github
 - Browser APIs
@@ -84,8 +85,8 @@ The API's in use are
 
 ### Installation
 
-This webpage can be rendered by visiting the url :
-The code can be viewed at github: https://github.com/chrisma89/PursuitOfHobbies
+This webpage can be rendered by visiting the url : https://chrisma89.github.io/The-Pursuit-of-Hobbyness/
+The code can be viewed at github: https://github.com/chrisma89/The-Pursuit-of-Hobbyness
 
 ### Usage
 
