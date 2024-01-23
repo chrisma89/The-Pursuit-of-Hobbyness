@@ -25,7 +25,7 @@ Each category, carefully designed to encompass a wide range of interests, guides
 
 Selecting a category triggers the display of a suggested hobby title alongside four interactive buttons, each serving a unique purpose in the user's exploratory journey:
 
-1. **Take me to the videos**: A key feature that enriches the user experience by embedding a collection of six videos related to the hobby directly onto the webpage. This feature also smartly incorporates the hobby into the user's local storage for future reference.
+1. **Pursue Hobby**: A key feature that enriches the user experience by embedding a collection of six videos related to the hobby directly onto the webpage. This feature also smartly incorporates the hobby into the user's local storage for future reference.
 
 2. **What is**: This button links to a Wikipedia page, providing comprehensive information about the selected hobby, aiding users in making an informed decision.
 
@@ -43,7 +43,7 @@ The application is designed with an intuitive navigation system. The navbar, pro
 
 ## Technical Summary
 
-"The Pursuit of Hobbyness" stands as a testament to modern web application development, employing responsive design, dynamic content generation, and efficient local storage utilization. The platform's architecture is built to foster an interactive and educational environment, making the exploration of new hobbies both accessible and engaging.
+"The Pursuit of Hobbyness" employs responsive design, dynamic content generation, and efficient local storage utilisation. The platform's architecture is built to foster an interactive and educational environment, making the exploration of new hobbies both accessible and engaging.
 
 In essence, "The Pursuit of Hobbyness" is more than just an application; it's a digital companion in the journey of self-discovery and personal growth through the pursuit of hobbies.
 
@@ -52,36 +52,36 @@ In essence, "The Pursuit of Hobbyness" is more than just an application; it's a 
 
 This repository has been built using 
 
--HTML5
--CSS3
--Javascript
--Git 
--Github 
--Browser APIs 
--Server APTs
--Bootstrap
--Figma
--Excalidraw
+- HTML5
+- CSS3
+- Javascript
+- Git 
+- Github 
+- Browser APIs 
+- Server APIs
+- Bootstrap
+- Figma
+- Excalidraw
 
 The API's in use are 
--https://api-ninjas.com/api/hobbies
--https://developers.google.com/youtube/v3
+- https://api-ninjas.com/api/hobbies
+- https://developers.google.com/youtube/v3
 
 ## Resources:
 
 ### Resources for collaborative working
 
--https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
--https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github
+- https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
+- https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github
 
 
 ### Resources on building the webpage
 
--https://developers.google.com/youtube/v3/docs
--https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
--https://hansen-breanna.github.io/local-storage.html
--https://developers.google.com/youtube/player_parameters
--https://en.wikipedia.org/wiki/Wikipedia:Copyrights
+- https://developers.google.com/youtube/v3/docs
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+- https://hansen-breanna.github.io/local-storage.html
+- https://developers.google.com/youtube/player_parameters
+- https://en.wikipedia.org/wiki/Wikipedia:Copyrights
 
 
 ### Installation
