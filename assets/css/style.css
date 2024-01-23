@@ -41,13 +41,14 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   height: 48px;
 }
 
-.videos iframe {
+.video-wrapper iframe {
   border-radius: 25px;
   width: 100%;
+  margin-bottom: 1.5rem;
 }
 
-.videos h4 {
-  margin: 1.5rem auto;
+.video-wrapper h4 {
+  margin: 0 auto 1.5rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -169,7 +170,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   text-align: center;
 }
 
-#videos button.startoverbtn {
+button.startoverbtn {
   margin: 25px auto 0;
 }
 
@@ -240,7 +241,7 @@ ul.dropdown-menu.show * + * {
    max-width: 100%;
 }
 
-.videos iframe {
+.video-wrapper iframe {
  height: 40vw;
  min-height: 160px
 }
@@ -251,7 +252,7 @@ ul.dropdown-menu.show * + * {
 
 @media (min-width : 576px) {
 
-  .videos iframe {
+  .video-wrapper iframe {
     height: 235px;
   }
 
@@ -259,7 +260,7 @@ ul.dropdown-menu.show * + * {
 
 @media (min-width : 768px) {
 
-  .videos iframe {
+  .video-wrapper iframe {
     height: 160px;
   }
 
@@ -267,21 +268,21 @@ ul.dropdown-menu.show * + * {
 
 @media (min-width : 992px) {
 
-  .videos iframe {
+  .video-wrapper iframe {
     height: 225px;
   }
 }
 
 @media (min-width : 1200px) {
 
-  .videos iframe {
+  .video-wrapper iframe {
     height: 180px;
   }
 }
 
 @media (min-width : 1400px) {
 
-  .videos iframe {
+  .video-wrapper iframe {
     height: 215px;
   }
 }
