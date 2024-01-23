@@ -30,7 +30,7 @@ main {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 65px 16px;
+  padding: 80px 16px;
 }
 
 h1,
@@ -176,7 +176,7 @@ h6,
   text-align: center;
 }
 
-button.startoverbtn {
+#videos button.startOverBtn {
   margin: 25px auto 0;
 }
 
@@ -188,7 +188,7 @@ button.startoverbtn {
   max-width: 320px;
 }
 
-#hobby button.startoverbtn {
+#hobby button.startOverBtn {
   margin-bottom: 0 !important;
 }
 
