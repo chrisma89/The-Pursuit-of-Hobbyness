@@ -94,8 +94,7 @@ function fetchData(dataCategory) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-
+      
       //  data captured onto variables
       let hobbyName = data.hobby;
       let wikiLink = data.link;
@@ -176,7 +175,6 @@ function fetchData(dataCategory) {
               
               // function call to store searched hobbies in local storage under each category
               storeHobbies(hobbyName, dataCategory);
-              console.log(hobbyName, dataCategory);
 
               // Make my hobbies button visible only after video generator button is clicked
               $(".my-hobbies").css("display", "block");
@@ -191,7 +189,7 @@ function fetchData(dataCategory) {
             return response.json();
           })
           .then(function (data) {
-            console.log(data);
+        
 
             let videoItems = data.items;
 
@@ -211,7 +209,7 @@ function fetchData(dataCategory) {
             for (let i = 0; i < videoItems.length; i++) {
               let videoDIv = $("<div>").addClass("col-md-6 col-xl-4 video-wrapper");
               let videoID = data.items[i].id.videoId;
-              console.log(videoID);
+              
               let videoTitle = data.items[i].snippet.title.trim().toLowerCase();
               let titleElement = $("<h4>").html(videoTitle);
 
