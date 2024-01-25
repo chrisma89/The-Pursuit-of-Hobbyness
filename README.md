@@ -73,6 +73,14 @@ The API's in use are
 - https://api-ninjas.com/api/hobbies
 - https://developers.google.com/youtube/v3
 
+## Prototype links :
+
+### Excalidraw
+- https://excalidraw.com/#room=8edd227f29c52a320e81,FKVmOWUbTQ9Mlh8tvoZETg
+
+### Figma link
+- https://www.figma.com/proto/Z5PTBptBxEeeyFWyZdgBMG/Pursuit-of-Hobbyness?page-id=0%3A1&type=design&node-id=39-65&viewport=303%2C739%2C0.12&t=WyuuGwvXX3ujC1xA-1&scaling=contain&starting-point-node-id=39%3A65&mode=design
+
 ## Resources:
 
 ### Resources for collaborative working

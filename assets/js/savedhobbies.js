@@ -180,7 +180,6 @@ function retrieveVideos(savedHobbyName) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
 
       let videoItems = data.items;
 
@@ -200,7 +199,7 @@ function retrieveVideos(savedHobbyName) {
       for (let i = 0; i < videoItems.length; i++) {
         let videoDiv = $("<div>").addClass("col-md-6 col-xl-4 video-wrapper");
         let videoID = data.items[i].id.videoId;
-        console.log(videoID);
+        
         let videoTitle = data.items[i].snippet.title.trim().toLowerCase();
         let titleElement = $("<h4>").html(videoTitle);
 
